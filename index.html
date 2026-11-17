@@ -3,7 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Vexlii - استوديو التصميم الحر المتقدم والآمن</title>
+    <title>Vexlii - منصة التصميم وتعديل الصور العربية</title>
+
+    <!-- SEO -->
+    <meta name="description" content="منصة Vexlii العربية لتصميم وتعديل وضغط الصور، توليد QR، ورفع الصور بروابط مباشرة — أدوات بسيطة وسريعة وتعمل من المتصفح.">
+    <meta name="keywords" content="Vexlii, منصة تصميم, تعديل صور, ضغط صور, تصميم عربي, مولد QR, استوديو صور, تصميم إنستغرام">
+    <meta name="author" content="Vexlii">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vexlii.netlify.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_AR">
+    <meta property="og:site_name" content="Vexlii">
+    <meta property="og:title" content="Vexlii - منصة التصميم وتعديل الصور العربية">
+    <meta property="og:description" content="صمّم وعدّل واضغط صورك بسهولة من المتصفح. أدوات عربية سريعة وآمنة.">
+    <meta property="og:url" content="https://vexlii.netlify.app/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Vexlii - منصة التصميم وتعديل الصور">
+    <meta name="twitter:description" content="منصة عربية بسيطة لتصميم وتعديل وضغط الصور وتوليد QR.">
 
     <!-- PWA / تطبيق -->
     <meta name="theme-color" content="#6d28d9">
@@ -12,7 +28,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Vexlii">
     <meta name="application-name" content="Vexlii">
-    <meta name="description" content="استوديو تصميم وتعديل وضغط الصور باحترافية وأمان">
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
@@ -126,21 +141,116 @@
         .decorative-tags {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px dashed #e2e8f0;
-            pointer-events: none;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #eef2f7;
         }
-        .tag-pill {
-            background: #f1f5f9;
+        .tag-pill-btn {
+            appearance: none;
+            border: 1px solid #e2e8f0;
+            background: #ffffff;
             color: #64748b;
-            border: 1px solid #cbd5e1;
-            padding: 6px 14px;
-            border-radius: 12px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 8px 14px;
+            border-radius: 999px;
+            cursor: pointer;
+            line-height: 1.2;
+            -webkit-tap-highlight-color: transparent;
+            transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+        }
+        .tag-pill-btn:active {
+            background: #f8fafc;
+        }
+        .tag-pill-btn.active {
+            background: #f5f3ff;
+            border-color: #c4b5fd;
+            color: #6d28d9;
+        }
+        .home-tools-row {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #eef2f7;
+            flex-wrap: wrap;
+        }
+        .home-icon-btn {
+            display: inline-flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: #f8fafc;
+            border: 1px solid #e8eef5;
+            border-radius: 999px;
+            cursor: pointer;
+            padding: 8px 12px;
+            -webkit-tap-highlight-color: transparent;
+            transition: background 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
+        }
+        .home-icon-btn .icon-circle {
+            width: auto;
+            height: auto;
+            border: none;
+            background: transparent;
+            font-size: 0.95rem;
+            line-height: 1;
+            padding: 0;
+            box-shadow: none;
+        }
+        .home-icon-btn span.label {
             font-size: 0.72rem;
             font-weight: 700;
-            letter-spacing: 0.3px;
+            color: #64748b;
+            line-height: 1.2;
+        }
+        .home-icon-btn:active {
+            transform: scale(0.97);
+            background: #f1f5f9;
+        }
+        .home-icon-btn.active {
+            background: #f5f3ff;
+            border-color: #c4b5fd;
+        }
+        .home-icon-btn.active span.label {
+            color: #6d28d9;
+        }
+        .home-icon-btn:focus-visible {
+            outline: 2px solid #c4b5fd;
+            outline-offset: 2px;
+        }
+        .home-tool-panel {
+            margin-top: 10px;
+            padding: 14px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            text-align: right;
+        }
+        .home-tool-panel-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+        .home-panel-close {
+            background: #e2e8f0;
+            border: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            line-height: 1;
+            cursor: pointer;
+            color: #475569;
         }
         .preview-box {
             width: 100%;
@@ -1069,7 +1179,7 @@
                 </button>
             </div>
         </div>
-        <p class="subtitle" id="subtitleText">عدل وضبط صورك بأمان تام وأدوات احترافية ✨</p>
+        <p class="subtitle" id="subtitleText">منصة عربية لتعديل وتصميم وضغط الصور بأمان وسهولة ✨</p>
 
         <!-- الواجهة الرئيسية -->
         <div id="mainWelcomeSection">
@@ -1080,12 +1190,15 @@
 
             <button class="btn-scratch-start" id="openScratchModalBtn">✨ بدء تصميم جديد بمقاسات مخصصة</button>
 
-            <!-- رفع صورة والحصول على رابط -->
-            <div style="margin-top:14px; padding:14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:14px; text-align:right;">
-                <p style="font-size:0.85rem; font-weight:800; color:#1e293b; margin-bottom:8px;">🔗 رفع صورة ونسخ رابطها</p>
+            <!-- لوحة رابط الصورة (تظهر عند الضغط على الأيقونة) -->
+            <div id="homeLinkPanel" class="home-tool-panel" style="display:none;">
+                <div class="home-tool-panel-head">
+                    <span>🔗 رفع صورة ونسخ رابطها</span>
+                    <button type="button" class="home-panel-close" data-close-panel="homeLinkPanel" aria-label="إغلاق">×</button>
+                </div>
                 <p style="font-size:0.72rem; color:#64748b; margin-bottom:8px;">ارفع صورة واحصل على رابط مباشر للنسخ والمشاركة</p>
                 <div id="linkExternalNote" style="background:#fff7ed; border:1px solid #fed7aa; color:#c2410c; border-radius:10px; padding:8px 10px; font-size:0.72rem; font-weight:700; margin-bottom:10px; line-height:1.5; display:flex; align-items:flex-start; gap:8px;">
-                    <span style="flex:1;">⚠️ ملاحظة: هذه الميزة ترفع الصورة إلى خدمة خارجية (ImgBB) للحصول على رابط. باقي أدوات Vexlii تعمل محلياً داخل متصفحك دون رفع صورك.</span>
+                    <span style="flex:1;">⚠️ ملاحظة: هذه الميزة ترفع الصورة إلى خدمة خارجية (ImgBB). باقي أدوات Vexlii تعمل محلياً.</span>
                     <button type="button" id="dismissLinkNoteBtn" aria-label="إغلاق" style="background:transparent;border:none;color:#c2410c;font-size:1.1rem;font-weight:900;cursor:pointer;line-height:1;padding:0 2px;">×</button>
                 </div>
                 <input type="file" id="linkImageInput" accept="image/jpeg, image/png, image/webp, image/gif, image/bmp" style="display:none;">
@@ -1098,27 +1211,171 @@
                 <p id="linkUploadStatus" style="font-size:0.75rem; color:#64748b; margin-top:6px; display:none;"></p>
             </div>
 
-            <!-- أداة QR حرة في الصفحة الرئيسية -->
-            <div style="margin-top:14px; padding:14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:14px; text-align:right;">
-                <p style="font-size:0.85rem; font-weight:800; color:#1e293b; margin-bottom:6px;">📱 مولد رمز QR <span class="new-badge">جديد</span></p>
-                <p style="font-size:0.72rem; color:#64748b; margin-bottom:10px;">أداة حرة: أدخل رابطاً أو رقم هاتف وأنشئ باركود فوراً</p>
+            <!-- لوحة QR (تظهر عند الضغط على زر QR) -->
+            <div id="homeQrPanel" class="home-tool-panel" style="display:none;">
+                <div class="home-tool-panel-head">
+                    <span>📱 مولد رمز QR</span>
+                    <button type="button" class="home-panel-close" data-close-panel="homeQrPanel" aria-label="إغلاق">×</button>
+                </div>
+                <p style="font-size:0.72rem; color:#64748b; margin-bottom:10px;">أدخل رابطاً أو رقم هاتف — مع لون وشعار اختياري</p>
                 <div class="control-group" style="margin-bottom:10px;">
                     <label for="homeQrInput" style="font-size:0.78rem;">النص أو الرابط أو رقم الهاتف:</label>
                     <input type="text" id="homeQrInput" placeholder="مثال: https://example.com أو 0912345678" maxlength="500" autocomplete="off">
                 </div>
+                <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px;">
+                    <div style="flex:1; min-width:140px;">
+                        <label style="font-size:0.72rem; color:#64748b;">لون الرمز</label>
+                        <div style="display:flex; gap:6px; align-items:center;">
+                            <input type="color" id="homeQrColorDark" value="#000000" style="width:44px; height:36px; border:1px solid #e2e8f0; border-radius:8px; padding:2px; background:#fff; flex-shrink:0;">
+                            <input type="text" id="homeQrColorDarkHex" value="#000000" maxlength="15" placeholder="#000000" style="flex:1; min-width:0; padding:8px 10px; border-radius:8px; border:1px solid #e2e8f0; font-size:0.8rem; direction:ltr; text-align:left;">
+                        </div>
+                    </div>
+                    <div style="flex:1; min-width:140px;">
+                        <label style="font-size:0.72rem; color:#64748b;">لون الخلفية</label>
+                        <div style="display:flex; gap:6px; align-items:center;">
+                            <input type="color" id="homeQrColorLight" value="#ffffff" style="width:44px; height:36px; border:1px solid #e2e8f0; border-radius:8px; padding:2px; background:#fff; flex-shrink:0;">
+                            <input type="text" id="homeQrColorLightHex" value="#ffffff" maxlength="15" placeholder="#ffffff" style="flex:1; min-width:0; padding:8px 10px; border-radius:8px; border:1px solid #e2e8f0; font-size:0.8rem; direction:ltr; text-align:left;">
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group" style="margin-bottom:10px;">
+                    <label style="font-size:0.72rem; color:#64748b;">شعار في المنتصف (اختياري)</label>
+                    <input type="file" id="homeQrLogoInput" accept="image/jpeg, image/png, image/webp">
+                    <button type="button" class="btn btn-secondary" id="homeQrLogoBtn" style="margin:6px 0 0 0; font-size:0.8rem; width:100%;">🖼️ اختيار شعار</button>
+                    <p id="homeQrLogoName" style="font-size:0.7rem; color:#64748b; margin-top:6px; display:none;"></p>
+                    <p style="font-size:0.68rem; color:#94a3b8; margin-top:4px;">يفضّل شعار مربع صغير ليبقى الرمز قابلاً للمسح</p>
+                </div>
                 <button class="btn btn-success" id="homeGenerateQrBtn" style="width:100%; margin:0;">توليد الـ QR Code</button>
-                <div id="homeQrPreviewWrap" style="display:none; text-align:center; margin-top:12px; padding:12px; background:#fff; border-radius:12px; border:1px solid #e9d5ff;">
+                <div id="homeQrPreviewWrap" style="display:none; text-align:center; margin-top:12px; padding:12px; background:#fff; border-radius:12px; border:1px solid #e2e8f0;">
                     <div id="homeQrPreview" style="display:inline-block; background:#fff; padding:12px; border-radius:12px;"></div>
                     <button class="btn btn-success" id="homeDownloadQrBtn" style="width:100%; margin:12px 0 0 0;">تنزيل الصورة كـ PNG</button>
                 </div>
             </div>
 
-            <div class="decorative-tags">
-                <div class="tag-pill">تصميم</div>
-                <div class="tag-pill">Vexlii</div>
-                <div class="tag-pill">اختيار صور</div>
-                <div class="tag-pill">تعديل</div>
-                <div class="tag-pill">QR</div>
+            <!-- لوحة ضغط سريع -->
+            <div id="homeCompressPanel" class="home-tool-panel" style="display:none;">
+                <div class="home-tool-panel-head">
+                    <span>🗜️ ضغط وتغيير حجم الصورة</span>
+                    <button type="button" class="home-panel-close" data-close-panel="homeCompressPanel" aria-label="إغلاق">×</button>
+                </div>
+                <p style="font-size:0.72rem; color:#64748b; margin-bottom:10px;">من الرئيسية مباشرة: ارفع، غيّر العرض والجودة والصيغة، ثم نزّل</p>
+                <input type="file" id="homeCompressInput" accept="image/jpeg, image/png, image/webp">
+                <button type="button" class="btn btn-secondary" id="homeCompressPickBtn" style="width:100%; margin:0 0 10px 0; font-size:0.82rem;">📤 اختيار صورة</button>
+                <p id="homeCompressFileName" style="font-size:0.72rem; color:#64748b; margin-bottom:8px; display:none;"></p>
+                <div class="control-group">
+                    <label>أقصى عرض (بكسل): <span id="homeCompressWidthVal">1280</span></label>
+                    <input type="range" id="homeCompressWidth" min="320" max="4000" value="1280" step="10">
+                </div>
+                <div class="control-group">
+                    <label>الجودة: <span id="homeCompressQualityVal">80</span>%</label>
+                    <input type="range" id="homeCompressQuality" min="40" max="100" value="80">
+                </div>
+                <div class="control-group">
+                    <label>الصيغة</label>
+                    <select id="homeCompressFormat" style="width:100%; padding:10px; border-radius:10px; border:1px solid #e2e8f0;">
+                        <option value="image/jpeg">JPG</option>
+                        <option value="image/webp">WEBP</option>
+                        <option value="image/png">PNG</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-success" id="homeCompressDownloadBtn" style="width:100%; margin:0;">⬇️ تنزيل الصورة</button>
+                <p id="homeCompressStatus" style="font-size:0.72rem; color:#64748b; margin-top:8px; display:none;"></p>
+            </div>
+
+            <!-- لوحة تكرار الصور (مثل ورقة طباعة) -->
+            <div id="homeRepeatPanel" class="home-tool-panel" style="display:none;">
+                <div class="home-tool-panel-head">
+                    <span>🖨️ تكرار الصورة</span>
+                    <button type="button" class="home-panel-close" data-close-panel="homeRepeatPanel" aria-label="إغلاق">×</button>
+                </div>
+                <p style="font-size:0.72rem; color:#64748b; margin-bottom:10px;">اختر صورة وعدد التكرارات (حتى 9) ثم نزّل ورقة واحدة تضمها جميعًا</p>
+                <input type="file" id="homeRepeatInput" accept="image/jpeg, image/png, image/webp, image/gif, image/bmp">
+                <button type="button" class="btn btn-secondary" id="homeRepeatPickBtn" style="width:100%; margin:0 0 10px 0; font-size:0.82rem;">📤 اختيار صورة</button>
+                <p id="homeRepeatFileName" style="font-size:0.72rem; color:#64748b; margin-bottom:8px; display:none;"></p>
+                <div class="control-group">
+                    <label>عدد التكرارات: <span id="homeRepeatCountVal">4</span></label>
+                    <input type="range" id="homeRepeatCount" min="1" max="9" value="4" step="1">
+                </div>
+                <button type="button" class="btn btn-success" id="homeRepeatDownloadBtn" style="width:100%; margin:0;">⬇️ تنزيل الورقة كاملة</button>
+                <p id="homeRepeatStatus" style="font-size:0.72rem; color:#64748b; margin-top:8px; display:none;"></p>
+            </div>
+
+            <!-- لوحة تشويش الصور -->
+            <div id="homeBlurPanel" class="home-tool-panel" style="display:none;">
+                <div class="home-tool-panel-head">
+                    <span>🌫️ تشويش الصور</span>
+                    <button type="button" class="home-panel-close" data-close-panel="homeBlurPanel" aria-label="إغلاق">×</button>
+                </div>
+                <p style="font-size:0.72rem; color:#64748b; margin-bottom:10px;">المعالجة محلية داخل متصفحك — ارفع صورة واضبط الضبابية أو البكسلة أو التشويش</p>
+                <input type="file" id="homeBlurInput" accept="image/jpeg, image/png, image/webp">
+                <button type="button" class="btn btn-secondary" id="homeBlurPickBtn" style="width:100%; margin:0 0 10px 0; font-size:0.82rem;">📤 اختيار صورة</button>
+                <p id="homeBlurFileName" style="font-size:0.72rem; color:#64748b; margin-bottom:8px; display:none;"></p>
+                <div id="homeBlurWorkspace" style="display:none;">
+                    <div style="background:#0f172a; border-radius:12px; padding:8px; margin-bottom:10px; text-align:center;">
+                        <canvas id="homeBlurCanvas" style="max-width:100%; max-height:280px; border-radius:8px;"></canvas>
+                    </div>
+                    <div class="control-group">
+                        <label>الضبابية: <span id="homeBlurVal">8</span>px</label>
+                        <input type="range" id="homeBlurRange" min="0" max="40" value="8">
+                    </div>
+                    <div class="control-group">
+                        <label>البكسلة: <span id="homePixelVal">1</span></label>
+                        <input type="range" id="homePixelRange" min="1" max="30" value="1">
+                    </div>
+                    <div class="control-group">
+                        <label>التشويش: <span id="homeNoiseVal">0</span>%</label>
+                        <input type="range" id="homeNoiseRange" min="0" max="80" value="0" step="5">
+                    </div>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                        <button type="button" class="btn btn-secondary" id="homeBlurResetBtn" style="margin:0; flex:1;">إعادة ضبط</button>
+                        <button type="button" class="btn btn-success" id="homeBlurDownloadBtn" style="margin:0; flex:1;">⬇️ تنزيل</button>
+                    </div>
+                </div>
+                <p id="homeBlurStatus" style="font-size:0.72rem; color:#64748b; margin-top:8px; display:none;"></p>
+            </div>
+
+            <!-- لوحة مستخرج الألوان -->
+            <div id="homeColorPanel" class="home-tool-panel" style="display:none;">
+                <div class="home-tool-panel-head">
+                    <span>🎨 مستخرج الألوان</span>
+                    <button type="button" class="home-panel-close" data-close-panel="homeColorPanel" aria-label="إغلاق">×</button>
+                </div>
+                <p style="font-size:0.72rem; color:#64748b; margin-bottom:10px;">استخرج اللون السائد تلقائيًا أو المس أي نقطة في الصورة — محليًا داخل المتصفح</p>
+                <input type="file" id="homeColorInput" accept="image/jpeg, image/png, image/webp">
+                <button type="button" class="btn btn-secondary" id="homeColorPickBtn" style="width:100%; margin:0 0 10px 0; font-size:0.82rem;">📤 اختيار صورة</button>
+                <p id="homeColorHint" style="font-size:0.72rem; color:#7c3aed; font-weight:700; margin-bottom:8px; display:none;">💡 المس الصورة لتحديد لون دقيق</p>
+                <div id="homeColorCanvasWrap" style="display:none; background:#0f172a; border-radius:12px; padding:8px; margin-bottom:10px; text-align:center;">
+                    <canvas id="homeColorCanvas" style="max-width:100%; max-height:280px; border-radius:8px; cursor:crosshair; touch-action:none;"></canvas>
+                </div>
+                <div id="homeColorResult" style="display:none; background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:12px;">
+                    <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+                        <div id="homeColorPreview" style="width:48px; height:48px; border-radius:12px; border:2px solid #fff; box-shadow:0 2px 8px rgba(0,0,0,0.15); background:#fff;"></div>
+                        <div>
+                            <div id="homeColorMode" style="font-size:0.72rem; color:#64748b;">اللون السائد (تلقائي)</div>
+                            <div id="homeColorHexTitle" style="font-size:1rem; font-weight:800; color:#1e293b;">#FFFFFF</div>
+                        </div>
+                    </div>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+                        <button type="button" class="btn btn-secondary" id="homeColorCopyHex" style="margin:0; font-size:0.78rem;">نسخ HEX</button>
+                        <button type="button" class="btn btn-secondary" id="homeColorCopyRgb" style="margin:0; font-size:0.78rem;">نسخ RGB</button>
+                    </div>
+                    <p id="homeColorCodes" style="font-size:0.75rem; color:#475569; margin-top:8px; direction:ltr; text-align:left;"></p>
+                </div>
+                <p id="homeColorStatus" style="font-size:0.72rem; color:#64748b; margin-top:8px; display:none;"></p>
+            </div>
+
+            <!-- شريط اختصارات هادئ أسفل الصفحة -->
+            <p style="text-align:center; font-size:0.75rem; color:#94a3b8; font-weight:700; margin:14px 0 6px;">اضغط على إحداها للبدء</p>
+            <div class="decorative-tags" id="homeQuickIcons" aria-label="اختصارات سريعة" style="margin-top:6px; padding-top:10px;">
+                <button type="button" class="tag-pill-btn" data-home-action="design">تصميم</button>
+                <button type="button" class="tag-pill-btn" data-home-action="photo">اختيار صور</button>
+                <button type="button" class="tag-pill-btn" data-home-action="edit">تعديل</button>
+                <button type="button" class="tag-pill-btn" data-home-action="compress">ضغط</button>
+                <button type="button" class="tag-pill-btn" data-home-action="blur">تشويش</button>
+                <button type="button" class="tag-pill-btn" data-home-action="color">ألوان</button>
+                <button type="button" class="tag-pill-btn" data-home-action="repeat">تكرار</button>
+                <button type="button" class="tag-pill-btn" data-home-action="qr">QR</button>
+                <button type="button" class="tag-pill-btn" data-home-action="link">رابط</button>
             </div>
         </div>
 
@@ -1224,7 +1481,7 @@
             </div>
             <div class="control-group">
                 <label>حجم الخط: <span id="textSizeVal">30</span>px</label>
-                <input type="range" id="textSizeRange" min="12" max="100" value="30">
+                <input type="range" id="textSizeRange" min="12" max="400" value="30">
             </div>
         </div>
 
@@ -1584,6 +1841,10 @@
                 <span>لنكن أصدقاء</span>
             </a>
 
+            <button type="button" class="sheet-link-btn" id="openAboutBtn" style="border:none; width:100%; cursor:pointer; background:#f1f5f9;">
+                <span class="icon">ℹ️</span>
+                <span>من نحن</span>
+            </button>
             <button type="button" class="sheet-link-btn" id="openPrivacyBtn" style="border:none; width:100%; cursor:pointer; background:#f1f5f9;">
                 <span class="icon">🔒</span>
                 <span>سياسة الخصوصية</span>
@@ -1597,6 +1858,27 @@
         </div>
     </div>
 
+    <!-- نافذة من نحن -->
+    <div class="modal-overlay" id="aboutModal" style="display:none;">
+        <div class="modal-box" style="max-height:80vh; overflow:auto; text-align:right;">
+            <h3>ℹ️ عن منصة Vexlii</h3>
+            <div style="font-size:0.85rem; line-height:1.75; color:#334155;">
+                <p>مرحبًا بك في <strong>Vexlii</strong>، مساحتك العربية لتعديل وتصميم وضغط الصور بسهولة وأمان.</p>
+                <p style="margin-top:10px;"><strong>قصتنا ورؤيتنا</strong><br>
+                انطلقت Vexlii كمبادرة تطويرية مستقلة لتقديم أدوات تصميم عربية سريعة وبسيطة. لاحظنا أن كثيرًا من الأدوات تتطلب حسابات معقدة أو ترفع الصور إلى خوادم خارجية، فعملنا على بناء استوديو يعمل مباشرة داخل المتصفح ويركّز على سهولة الاستخدام وخصوصية الملفات.</p>
+                <p style="margin-top:10px;"><strong>ماذا نقدم؟</strong></p>
+                <p>• محرر صور يدعم الخطوط العربية والملصقات والفلاتر</p>
+                <p>• أدوات ضغط وتغيير حجم الصور</p>
+                <p>• مولد QR وتكرار الصور للطباعة</p>
+                <p>• أدوات تشويش الصور واستخراج الألوان</p>
+                <p style="margin-top:10px;"><strong>تواصل معنا</strong><br>
+                نرحب بأي اقتراح أو ملاحظة أو تعاون عبر:<br>
+                <a href="mailto:prosync.biz@gmail.com" style="color:#7c3aed; font-weight:800;">prosync.biz@gmail.com</a></p>
+            </div>
+            <button class="btn btn-secondary" id="closeAboutBtn" style="margin-top:12px;">حسناً</button>
+        </div>
+    </div>
+
     <!-- نافذة الخصوصية -->
     <div class="modal-overlay" id="privacyModal" style="display:none;">
         <div class="modal-box" style="max-height:80vh; overflow:auto; text-align:right;">
@@ -1606,7 +1888,7 @@
                 <p>• يتم معالجة الصور والتصاميم <strong>محلياً على جهازك</strong> قدر الإمكان.</p>
                 <p>• لا نطلب إنشاء حساب لاستخدام المحرر الأساسي.</p>
                 <p>• ميزة رفع الصور لرابط خارجي (إن استخدمتها) ترسل الصورة إلى خدمة ImgBB حسب اختيارك، ويظهر تنبيه قبل الرفع.</p>
-                <p>• قد نستخدم أداة تحليلات مثل Microsoft Clarity لفهم استخدام الموقع بشكل مجهول وتحسين التجربة.</p>
+                <p>• قد نستخدم أداة تحليلات مثل Microsoft Clarity لفهم استخدام المنصة بشكل مجهول وتحسين التجربة.</p>
                 <p>• لا نبيع بياناتك الشخصية.</p>
                 <p>• أنت مسؤول عن المحتوى الذي تنشئه أو ترفعه، ويفضّل عدم رفع معلومات حسّاسة.</p>
             </div>
@@ -1619,9 +1901,9 @@
         <div class="modal-box" style="max-height:80vh; overflow:auto; text-align:right;">
             <h3>📜 شروط الاستخدام</h3>
             <div style="font-size:0.85rem; line-height:1.7; color:#334155;">
-                <p>باستخدامك موقع <strong>Vexlii</strong> فأنت توافق على التالي:</p>
+                <p>باستخدامك منصة <strong>Vexlii</strong> فأنت توافق على التالي:</p>
                 <p>• الخدمة تُقدَّم «كما هي» للمساعدة في التصميم والتحرير البسيط.</p>
-                <p>• يُمنع استخدام الموقع لأي محتوى غير قانوني أو ضار أو ينتهك حقوق الآخرين.</p>
+                <p>• يُمنع استخدام المنصة لأي محتوى غير قانوني أو ضار أو ينتهك حقوق الآخرين.</p>
                 <p>• التصاميم التي تنشئها مسؤوليتك، ويُفضّل التحقق من حقوق الصور والخطوط عند الاستخدام التجاري.</p>
                 <p>• قد تتغيّر الميزات أو تتوقف مؤقتاً دون إشعار مسبق.</p>
                 <p>• لسنا مسؤولين عن أي خسائر ناتجة عن استخدام أو تعذّر استخدام الخدمة.</p>
@@ -1893,6 +2175,7 @@
         let textY = 0;
         let isTextInitialized = false;
         let classicTextRotation = 0;
+        let classicTextSelected = false;
         let isDraggingClassicText = false;
         let isRotatingClassicText = false;
         let classicTextRotateStart = 0;
@@ -2047,6 +2330,7 @@
                         currentCropAspect = 0;
                         isTextInitialized = false;
                         classicTextRotation = 0;
+                        classicTextSelected = false;
                         freehandPaths = [];
                         currentPath = null;
                         isDrawingMode = false;
@@ -2103,6 +2387,580 @@
             canvasHeightInput.value = 1080;
             scratchModal.style.display = 'flex';
         });
+
+        // اختصارات الصفحة الرئيسية
+        (function setupHomeQuickIcons() {
+            const wrap = document.getElementById('homeQuickIcons');
+            const linkPanel = document.getElementById('homeLinkPanel');
+            const qrPanel = document.getElementById('homeQrPanel');
+            const compressPanel = document.getElementById('homeCompressPanel');
+            const repeatPanel = document.getElementById('homeRepeatPanel');
+            const blurPanel = document.getElementById('homeBlurPanel');
+            const colorPanel = document.getElementById('homeColorPanel');
+            if (!wrap) return;
+
+            function setActive(action) {
+                wrap.querySelectorAll('.tag-pill-btn').forEach(function(b) {
+                    b.classList.toggle('active', !!action && b.getAttribute('data-home-action') === action);
+                });
+            }
+            function hidePanels() {
+                [linkPanel, qrPanel, compressPanel, repeatPanel, blurPanel, colorPanel].forEach(function(p) {
+                    if (p) p.style.display = 'none';
+                });
+                setActive('');
+            }
+            function showPanel(panel, action) {
+                if (!panel) return;
+                const wasOpen = panel.style.display === 'block';
+                hidePanels();
+                if (wasOpen) return;
+                panel.style.display = 'block';
+                setActive(action);
+                panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            wrap.addEventListener('click', function(e) {
+                const btn = e.target.closest('.tag-pill-btn');
+                if (!btn) return;
+                const action = btn.getAttribute('data-home-action');
+                if (action === 'design') {
+                    hidePanels();
+                    if (openScratchModalBtn) openScratchModalBtn.click();
+                } else if (action === 'photo' || action === 'edit') {
+                    hidePanels();
+                    if (uploadLabel) uploadLabel.click();
+                } else if (action === 'link') {
+                    showPanel(linkPanel, 'link');
+                } else if (action === 'qr') {
+                    showPanel(qrPanel, 'qr');
+                    const qr = document.getElementById('homeQrInput');
+                    if (qr) setTimeout(function() { try { qr.focus({ preventScroll: true }); } catch (err) {} }, 120);
+                } else if (action === 'compress') {
+                    showPanel(compressPanel, 'compress');
+                } else if (action === 'repeat') {
+                    showPanel(repeatPanel, 'repeat');
+                } else if (action === 'blur') {
+                    showPanel(blurPanel, 'blur');
+                } else if (action === 'color') {
+                    showPanel(colorPanel, 'color');
+                }
+            });
+
+            document.querySelectorAll('.home-panel-close').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    hidePanels();
+                });
+            });
+        })();
+
+        // أداة ضغط سريع من الرئيسية
+        (function setupHomeCompressTool() {
+            const input = document.getElementById('homeCompressInput');
+            const pickBtn = document.getElementById('homeCompressPickBtn');
+            const fileNameEl = document.getElementById('homeCompressFileName');
+            const widthRange = document.getElementById('homeCompressWidth');
+            const widthVal = document.getElementById('homeCompressWidthVal');
+            const qualityRange = document.getElementById('homeCompressQuality');
+            const qualityVal = document.getElementById('homeCompressQualityVal');
+            const formatSel = document.getElementById('homeCompressFormat');
+            const downloadBtn = document.getElementById('homeCompressDownloadBtn');
+            const statusEl = document.getElementById('homeCompressStatus');
+            let compressFile = null;
+
+            function setStatus(msg, isError) {
+                if (!statusEl) return;
+                statusEl.style.display = 'block';
+                statusEl.textContent = msg;
+                statusEl.style.color = isError ? '#be123c' : '#047857';
+            }
+            if (widthRange && widthVal) widthRange.addEventListener('input', function() { widthVal.textContent = widthRange.value; });
+            if (qualityRange && qualityVal) qualityRange.addEventListener('input', function() { qualityVal.textContent = qualityRange.value; });
+            if (pickBtn && input) pickBtn.addEventListener('click', function() { input.click(); });
+            if (input) {
+                input.addEventListener('change', function() {
+                    const file = input.files && input.files[0];
+                    compressFile = null;
+                    if (!file) return;
+                    if (!file.type || !file.type.startsWith('image/')) {
+                        setStatus('اختر صورة صالحة فقط.', true);
+                        input.value = '';
+                        return;
+                    }
+                    compressFile = file;
+                    if (fileNameEl) {
+                        fileNameEl.style.display = 'block';
+                        fileNameEl.textContent = 'الملف: ' + file.name + ' (' + (file.size / 1024).toFixed(1) + ' KB)';
+                    }
+                    setStatus('جاهز للتنزيل بعد ضبط الإعدادات.', false);
+                });
+            }
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', function() {
+                    if (!compressFile) {
+                        setStatus('اختر صورة أولاً.', true);
+                        return;
+                    }
+                    const reader = new FileReader();
+                    reader.onload = function() {
+                        const img = new Image();
+                        img.onload = function() {
+                            const maxW = parseInt(widthRange && widthRange.value, 10) || 1280;
+                            let w = img.width;
+                            let h = img.height;
+                            if (w > maxW) {
+                                h = Math.round(h * (maxW / w));
+                                w = maxW;
+                            }
+                            const c = document.createElement('canvas');
+                            c.width = w;
+                            c.height = h;
+                            const cx = c.getContext('2d');
+                            cx.drawImage(img, 0, 0, w, h);
+                            const format = (formatSel && formatSel.value) || 'image/jpeg';
+                            const q = Math.min(1, Math.max(0.4, (parseInt(qualityRange && qualityRange.value, 10) || 80) / 100));
+                            c.toBlob(function(blob) {
+                                if (!blob) {
+                                    setStatus('تعذر إنشاء الصورة.', true);
+                                    return;
+                                }
+                                const a = document.createElement('a');
+                                a.href = URL.createObjectURL(blob);
+                                const ext = format === 'image/png' ? 'png' : (format === 'image/webp' ? 'webp' : 'jpg');
+                                a.download = 'vexlii-compress-' + Date.now() + '.' + ext;
+                                a.click();
+                                setStatus('تم التنزيل ✓ الحجم تقريبًا ' + (blob.size / 1024).toFixed(1) + ' KB', false);
+                            }, format, q);
+                        };
+                        img.onerror = function() { setStatus('تعذر قراءة الصورة.', true); };
+                        img.src = reader.result;
+                    };
+                    reader.onerror = function() { setStatus('تعذر قراءة الملف.', true); };
+                    reader.readAsDataURL(compressFile);
+                });
+            }
+        })();
+
+        // أداة تكرار الصورة (ورقة واحدة حتى 9 نسخ)
+        (function setupHomeRepeatTool() {
+            const input = document.getElementById('homeRepeatInput');
+            const pickBtn = document.getElementById('homeRepeatPickBtn');
+            const fileNameEl = document.getElementById('homeRepeatFileName');
+            const countRange = document.getElementById('homeRepeatCount');
+            const countVal = document.getElementById('homeRepeatCountVal');
+            const downloadBtn = document.getElementById('homeRepeatDownloadBtn');
+            const statusEl = document.getElementById('homeRepeatStatus');
+            let repeatFile = null;
+
+            function setStatus(msg, isError) {
+                if (!statusEl) return;
+                statusEl.style.display = 'block';
+                statusEl.textContent = msg;
+                statusEl.style.color = isError ? '#be123c' : '#047857';
+            }
+            if (countRange && countVal) countRange.addEventListener('input', function() { countVal.textContent = countRange.value; });
+            if (pickBtn && input) pickBtn.addEventListener('click', function() { input.click(); });
+            if (input) {
+                input.addEventListener('change', function() {
+                    const file = input.files && input.files[0];
+                    repeatFile = null;
+                    if (!file) return;
+                    if (!file.type || !file.type.startsWith('image/')) {
+                        setStatus('اختر صورة صالحة فقط.', true);
+                        input.value = '';
+                        return;
+                    }
+                    repeatFile = file;
+                    if (fileNameEl) {
+                        fileNameEl.style.display = 'block';
+                        fileNameEl.textContent = 'الملف: ' + file.name;
+                    }
+                    setStatus('جاهز لإنشاء الورقة.', false);
+                });
+            }
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', function() {
+                    if (!repeatFile) {
+                        setStatus('اختر صورة أولاً.', true);
+                        return;
+                    }
+                    const count = Math.min(9, Math.max(1, parseInt(countRange && countRange.value, 10) || 1));
+                    const reader = new FileReader();
+                    reader.onload = function() {
+                        const img = new Image();
+                        img.onload = function() {
+                            const cols = count <= 3 ? count : (count <= 6 ? 3 : 3);
+                            const rows = Math.ceil(count / cols);
+                            const gap = 12;
+                            const cellW = Math.min(img.width, 900);
+                            const scale = cellW / img.width;
+                            const cellH = Math.round(img.height * scale);
+                            const out = document.createElement('canvas');
+                            out.width = cols * cellW + (cols + 1) * gap;
+                            out.height = rows * cellH + (rows + 1) * gap;
+                            const ctx = out.getContext('2d');
+                            ctx.fillStyle = '#ffffff';
+                            ctx.fillRect(0, 0, out.width, out.height);
+                            for (let i = 0; i < count; i++) {
+                                const r = Math.floor(i / cols);
+                                const c = i % cols;
+                                const x = gap + c * (cellW + gap);
+                                const y = gap + r * (cellH + gap);
+                                ctx.drawImage(img, x, y, cellW, cellH);
+                            }
+                            out.toBlob(function(blob) {
+                                if (!blob) {
+                                    setStatus('تعذر إنشاء الورقة.', true);
+                                    return;
+                                }
+                                const a = document.createElement('a');
+                                a.href = URL.createObjectURL(blob);
+                                a.download = 'vexlii-repeat-' + count + '-' + Date.now() + '.png';
+                                a.click();
+                                setStatus('تم تنزيل ورقة بـ ' + count + ' تكرار ✓', false);
+                            }, 'image/png');
+                        };
+                        img.onerror = function() { setStatus('تعذر قراءة الصورة.', true); };
+                        img.src = reader.result;
+                    };
+                    reader.onerror = function() { setStatus('تعذر قراءة الملف.', true); };
+                    reader.readAsDataURL(repeatFile);
+                });
+            }
+        })();
+
+        // أداة تغبيش وتشويش الصور (محلية وسريعة)
+        (function setupHomeBlurTool() {
+            const input = document.getElementById('homeBlurInput');
+            const pickBtn = document.getElementById('homeBlurPickBtn');
+            const fileNameEl = document.getElementById('homeBlurFileName');
+            const workspace = document.getElementById('homeBlurWorkspace');
+            const canvasEl = document.getElementById('homeBlurCanvas');
+            const blurRange = document.getElementById('homeBlurRange');
+            const blurVal = document.getElementById('homeBlurVal');
+            const pixelRange = document.getElementById('homePixelRange');
+            const pixelVal = document.getElementById('homePixelVal');
+            const noiseRange = document.getElementById('homeNoiseRange');
+            const noiseVal = document.getElementById('homeNoiseVal');
+            const resetBtn = document.getElementById('homeBlurResetBtn');
+            const downloadBtn = document.getElementById('homeBlurDownloadBtn');
+            const statusEl = document.getElementById('homeBlurStatus');
+            if (!canvasEl) return;
+            const ctx = canvasEl.getContext('2d', { willReadFrequently: true });
+            const off = document.createElement('canvas');
+            const offCtx = off.getContext('2d');
+            let sourceImg = null;
+            let pending = false;
+            const MAX_SIDE = 1280;
+
+            function setStatus(msg, isError) {
+                if (!statusEl) return;
+                statusEl.style.display = 'block';
+                statusEl.textContent = msg;
+                statusEl.style.color = isError ? '#be123c' : '#047857';
+            }
+            function updateLabels() {
+                if (blurVal) blurVal.textContent = blurRange.value;
+                if (pixelVal) pixelVal.textContent = pixelRange.value === '1' ? '1 (عادي)' : pixelRange.value;
+                if (noiseVal) noiseVal.textContent = noiseRange.value;
+            }
+            function scheduleRender() {
+                if (pending) return;
+                pending = true;
+                requestAnimationFrame(function() {
+                    pending = false;
+                    render();
+                });
+            }
+            function applyNoise(context, width, height, intensity) {
+                if (intensity <= 0) return;
+                // على الصور الكبيرة نأخذ عينات أسرع
+                const step = (width * height > 900000) ? 8 : 4;
+                const imgData = context.getImageData(0, 0, width, height);
+                const data = imgData.data;
+                const factor = (intensity / 100) * 100;
+                for (let y = 0; y < height; y += step) {
+                    for (let x = 0; x < width; x += step) {
+                        const i = (y * width + x) * 4;
+                        if (data[i + 3] === 0) continue;
+                        const rand = (Math.random() - 0.5) * factor;
+                        for (let dy = 0; dy < step && y + dy < height; dy++) {
+                            for (let dx = 0; dx < step && x + dx < width; dx++) {
+                                const j = ((y + dy) * width + (x + dx)) * 4;
+                                data[j] = Math.min(255, Math.max(0, data[j] + rand));
+                                data[j + 1] = Math.min(255, Math.max(0, data[j + 1] + rand));
+                                data[j + 2] = Math.min(255, Math.max(0, data[j + 2] + rand));
+                            }
+                        }
+                    }
+                }
+                context.putImageData(imgData, 0, 0);
+            }
+            function render() {
+                if (!sourceImg) return;
+                const w = canvasEl.width;
+                const h = canvasEl.height;
+                const blurAmount = parseInt(blurRange.value, 10) || 0;
+                const pixelSize = parseInt(pixelRange.value, 10) || 1;
+                const noiseAmount = parseInt(noiseRange.value, 10) || 0;
+
+                off.width = w;
+                off.height = h;
+                offCtx.clearRect(0, 0, w, h);
+                if (pixelSize > 1) {
+                    const scaledW = Math.max(1, Math.floor(w / pixelSize));
+                    const scaledH = Math.max(1, Math.floor(h / pixelSize));
+                    const tiny = document.createElement('canvas');
+                    tiny.width = scaledW;
+                    tiny.height = scaledH;
+                    const tctx = tiny.getContext('2d');
+                    tctx.drawImage(sourceImg, 0, 0, scaledW, scaledH);
+                    offCtx.imageSmoothingEnabled = false;
+                    offCtx.drawImage(tiny, 0, 0, scaledW, scaledH, 0, 0, w, h);
+                } else {
+                    offCtx.imageSmoothingEnabled = true;
+                    offCtx.drawImage(sourceImg, 0, 0, w, h);
+                }
+
+                ctx.clearRect(0, 0, w, h);
+                ctx.save();
+                if (blurAmount > 0) {
+                    const scaleFactor = Math.max(w, h) / 1000;
+                    const effectiveBlur = blurAmount * Math.max(0.8, scaleFactor);
+                    ctx.filter = 'blur(' + effectiveBlur + 'px)';
+                    const pad = effectiveBlur * 2;
+                    ctx.drawImage(off, -pad, -pad, w + pad * 2, h + pad * 2);
+                } else {
+                    ctx.filter = 'none';
+                    ctx.drawImage(off, 0, 0, w, h);
+                }
+                ctx.restore();
+                ctx.filter = 'none';
+                if (noiseAmount > 0) applyNoise(ctx, w, h, noiseAmount);
+            }
+            function loadFile(file) {
+                if (!file) return;
+                const allowed = ['image/jpeg', 'image/png', 'image/webp'];
+                if (!file.type || allowed.indexOf(file.type) === -1) {
+                    setStatus('صيغة غير مدعومة. استخدم JPG أو PNG أو WEBP.', true);
+                    return;
+                }
+                const reader = new FileReader();
+                reader.onload = function() {
+                    const img = new Image();
+                    img.onload = function() {
+                        sourceImg = img;
+                        let w = img.width;
+                        let h = img.height;
+                        const m = Math.max(w, h);
+                        if (m > MAX_SIDE) {
+                            const s = MAX_SIDE / m;
+                            w = Math.round(w * s);
+                            h = Math.round(h * s);
+                        }
+                        canvasEl.width = w;
+                        canvasEl.height = h;
+                        if (fileNameEl) {
+                            fileNameEl.style.display = 'block';
+                            fileNameEl.textContent = 'الملف: ' + file.name + ' — العرض: ' + w + '×' + h;
+                        }
+                        if (workspace) workspace.style.display = 'block';
+                        blurRange.value = 8;
+                        pixelRange.value = 1;
+                        noiseRange.value = 0;
+                        updateLabels();
+                        scheduleRender();
+                        setStatus('جاهز — اضبط التأثير ثم نزّل.', false);
+                    };
+                    img.onerror = function() { setStatus('تعذر قراءة الصورة.', true); };
+                    img.src = reader.result;
+                };
+                reader.onerror = function() { setStatus('تعذر قراءة الملف.', true); };
+                reader.readAsDataURL(file);
+            }
+            if (pickBtn && input) pickBtn.addEventListener('click', function() { input.click(); });
+            if (input) {
+                input.addEventListener('change', function() {
+                    const f = input.files && input.files[0];
+                    if (f) loadFile(f);
+                    input.value = '';
+                });
+            }
+            [blurRange, pixelRange, noiseRange].forEach(function(el) {
+                if (!el) return;
+                el.addEventListener('input', function() {
+                    updateLabels();
+                    scheduleRender();
+                });
+            });
+            if (resetBtn) {
+                resetBtn.addEventListener('click', function() {
+                    if (blurRange) blurRange.value = 0;
+                    if (pixelRange) pixelRange.value = 1;
+                    if (noiseRange) noiseRange.value = 0;
+                    updateLabels();
+                    scheduleRender();
+                });
+            }
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', function() {
+                    if (!sourceImg) {
+                        setStatus('اختر صورة أولاً.', true);
+                        return;
+                    }
+                    render();
+                    canvasEl.toBlob(function(blob) {
+                        if (!blob) {
+                            setStatus('تعذر إنشاء الصورة.', true);
+                            return;
+                        }
+                        const a = document.createElement('a');
+                        a.href = URL.createObjectURL(blob);
+                        a.download = 'vexlii-blur-' + Date.now() + '.png';
+                        a.click();
+                        setStatus('تم التنزيل ✓', false);
+                    }, 'image/png');
+                });
+            }
+        })();
+
+        // مستخرج الألوان من صورة
+        (function setupHomeColorTool() {
+            const input = document.getElementById('homeColorInput');
+            const pickBtn = document.getElementById('homeColorPickBtn');
+            const canvasEl = document.getElementById('homeColorCanvas');
+            const canvasWrap = document.getElementById('homeColorCanvasWrap');
+            const hint = document.getElementById('homeColorHint');
+            const result = document.getElementById('homeColorResult');
+            const preview = document.getElementById('homeColorPreview');
+            const modeEl = document.getElementById('homeColorMode');
+            const hexTitle = document.getElementById('homeColorHexTitle');
+            const codesEl = document.getElementById('homeColorCodes');
+            const statusEl = document.getElementById('homeColorStatus');
+            const copyHexBtn = document.getElementById('homeColorCopyHex');
+            const copyRgbBtn = document.getElementById('homeColorCopyRgb');
+            if (!canvasEl) return;
+            const ctx = canvasEl.getContext('2d', { willReadFrequently: true });
+            let currentHex = '#FFFFFF';
+            let currentRgb = 'rgb(255, 255, 255)';
+            let dragging = false;
+            const MAX_SIDE = 1200;
+
+            function setStatus(msg, isError) {
+                if (!statusEl) return;
+                statusEl.style.display = 'block';
+                statusEl.textContent = msg;
+                statusEl.style.color = isError ? '#be123c' : '#047857';
+            }
+            function rgbToHex(r, g, b) {
+                return '#' + [r, g, b].map(function(x) {
+                    const h = x.toString(16);
+                    return h.length === 1 ? '0' + h : h;
+                }).join('').toUpperCase();
+            }
+            function updateUI(r, g, b, modeText) {
+                currentHex = rgbToHex(r, g, b);
+                currentRgb = 'rgb(' + r + ', ' + g + ', ' + b + ')';
+                if (preview) preview.style.backgroundColor = currentHex;
+                if (modeEl) modeEl.textContent = modeText;
+                if (hexTitle) hexTitle.textContent = currentHex;
+                if (codesEl) codesEl.textContent = currentHex + '  ·  ' + currentRgb;
+            }
+            function getDominantColor(width, height) {
+                const data = ctx.getImageData(0, 0, width, height).data;
+                let r = 0, g = 0, b = 0, count = 0;
+                const step = 40; // كل 10 بكسلات
+                for (let i = 0; i < data.length; i += step) {
+                    if (data[i + 3] < 128) continue;
+                    r += data[i];
+                    g += data[i + 1];
+                    b += data[i + 2];
+                    count++;
+                }
+                if (!count) return { r: 255, g: 255, b: 255 };
+                return {
+                    r: Math.round(r / count),
+                    g: Math.round(g / count),
+                    b: Math.round(b / count)
+                };
+            }
+            function pickAtEvent(e) {
+                if (e.cancelable) e.preventDefault();
+                const rect = canvasEl.getBoundingClientRect();
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                const scaleX = canvasEl.width / rect.width;
+                const scaleY = canvasEl.height / rect.height;
+                const x = Math.floor((clientX - rect.left) * scaleX);
+                const y = Math.floor((clientY - rect.top) * scaleY);
+                if (x < 0 || y < 0 || x >= canvasEl.width || y >= canvasEl.height) return;
+                const pixel = ctx.getImageData(x, y, 1, 1).data;
+                updateUI(pixel[0], pixel[1], pixel[2], 'تحديد يدوي (نقطة محددة)');
+            }
+            function loadFile(file) {
+                if (!file) return;
+                const allowed = ['image/jpeg', 'image/png', 'image/webp'];
+                if (!file.type || allowed.indexOf(file.type) === -1) {
+                    setStatus('صيغة غير مدعومة. استخدم JPG أو PNG أو WEBP.', true);
+                    return;
+                }
+                const reader = new FileReader();
+                reader.onload = function() {
+                    const img = new Image();
+                    img.onload = function() {
+                        let w = img.width;
+                        let h = img.height;
+                        const m = Math.max(w, h);
+                        if (m > MAX_SIDE) {
+                            const s = MAX_SIDE / m;
+                            w = Math.round(w * s);
+                            h = Math.round(h * s);
+                        }
+                        canvasEl.width = w;
+                        canvasEl.height = h;
+                        ctx.drawImage(img, 0, 0, w, h);
+                        if (canvasWrap) canvasWrap.style.display = 'block';
+                        if (hint) hint.style.display = 'block';
+                        if (result) result.style.display = 'block';
+                        const d = getDominantColor(w, h);
+                        updateUI(d.r, d.g, d.b, 'اللون السائد (تلقائي)');
+                        setStatus('جاهز — المس الصورة لنقطة أدق.', false);
+                    };
+                    img.onerror = function() { setStatus('تعذر قراءة الصورة.', true); };
+                    img.src = reader.result;
+                };
+                reader.onerror = function() { setStatus('تعذر قراءة الملف.', true); };
+                reader.readAsDataURL(file);
+            }
+            if (pickBtn && input) pickBtn.addEventListener('click', function() { input.click(); });
+            if (input) {
+                input.addEventListener('change', function() {
+                    const f = input.files && input.files[0];
+                    if (f) loadFile(f);
+                    input.value = '';
+                });
+            }
+            canvasEl.addEventListener('mousedown', function(e) { dragging = true; pickAtEvent(e); });
+            canvasEl.addEventListener('mousemove', function(e) { if (dragging) pickAtEvent(e); });
+            window.addEventListener('mouseup', function() { dragging = false; });
+            canvasEl.addEventListener('touchstart', function(e) { dragging = true; pickAtEvent(e); }, { passive: false });
+            canvasEl.addEventListener('touchmove', function(e) { if (dragging) pickAtEvent(e); }, { passive: false });
+            window.addEventListener('touchend', function() { dragging = false; });
+
+            function copyValue(text, label) {
+                if (!navigator.clipboard) {
+                    setStatus('النسخ غير متاح في هذا المتصفح.', true);
+                    return;
+                }
+                navigator.clipboard.writeText(text).then(function() {
+                    setStatus('تم نسخ ' + label + ' ✓', false);
+                }).catch(function() {
+                    setStatus('تعذر النسخ.', true);
+                });
+            }
+            if (copyHexBtn) copyHexBtn.addEventListener('click', function() { copyValue(currentHex, 'HEX'); });
+            if (copyRgbBtn) copyRgbBtn.addEventListener('click', function() { copyValue(currentRgb, 'RGB'); });
+        })();
 
         confirmScratchBtn.addEventListener('click', () => {
             let w, h;
@@ -2331,29 +3189,36 @@
                 ctx.fillText(safeText, 0, 0);
                 ctx.restore();
 
-                // مقابض تحريك وتدوير النص
-                ctx.save();
-                ctx.strokeStyle = '#8b5cf6';
-                ctx.lineWidth = 2;
-                ctx.setLineDash([5, 4]);
-                ctx.strokeRect(textX - tw / 2 - 8, textY - th / 2 - 8, tw + 16, th + 16);
-                ctx.setLineDash([]);
-                // مقبض التحريك
-                ctx.beginPath();
-                ctx.arc(textX, textY - th / 2 - 22, 12, 0, Math.PI * 2);
-                ctx.fillStyle = '#8b5cf6';
-                ctx.fill();
-                ctx.strokeStyle = '#fff';
-                ctx.lineWidth = 2;
-                ctx.stroke();
-                // مقبض التدوير
-                ctx.beginPath();
-                ctx.arc(textX + tw / 2 + 22, textY, 12, 0, Math.PI * 2);
-                ctx.fillStyle = '#0ea5e9';
-                ctx.fill();
-                ctx.strokeStyle = '#fff';
-                ctx.stroke();
-                ctx.restore();
+                // مقابض تحريك وتدوير النص (فقط عند التحديد)
+                if (classicTextSelected) {
+                    const s = getUiScale();
+                    const pad = 8 * s;
+                    const moveOff = 22 * s;
+                    const rotOff = 22 * s;
+                    const r = 12 * s;
+                    ctx.save();
+                    ctx.strokeStyle = '#8b5cf6';
+                    ctx.lineWidth = Math.max(2, 2 * s);
+                    ctx.setLineDash([5 * s, 4 * s]);
+                    ctx.strokeRect(textX - tw / 2 - pad, textY - th / 2 - pad, tw + pad * 2, th + pad * 2);
+                    ctx.setLineDash([]);
+                    // مقبض التحريك
+                    ctx.beginPath();
+                    ctx.arc(textX, textY - th / 2 - moveOff, r, 0, Math.PI * 2);
+                    ctx.fillStyle = '#8b5cf6';
+                    ctx.fill();
+                    ctx.strokeStyle = '#fff';
+                    ctx.lineWidth = Math.max(2, 2 * s);
+                    ctx.stroke();
+                    // مقبض التدوير
+                    ctx.beginPath();
+                    ctx.arc(textX + tw / 2 + rotOff, textY, r, 0, Math.PI * 2);
+                    ctx.fillStyle = '#0ea5e9';
+                    ctx.fill();
+                    ctx.strokeStyle = '#fff';
+                    ctx.stroke();
+                    ctx.restore();
+                }
             }
 
             // رسم الفرشاة فوق الصورة في الوضع الكلاسيكي
@@ -2384,6 +3249,19 @@
                 }
                 ctx.restore();
             });
+
+            // حد أقصى لحجم النص حسب مقاس الصورة (للتكبير أكثر من 100)
+            if (textSizeRange && canvas.width && canvas.height) {
+                const maxS = Math.max(120, Math.min(600, Math.round(Math.min(canvas.width, canvas.height) * 0.55)));
+                if (String(textSizeRange.max) !== String(maxS)) {
+                    textSizeRange.max = maxS;
+                    const cur = parseInt(textSizeRange.value, 10) || 30;
+                    if (cur > maxS) {
+                        textSizeRange.value = maxS;
+                        if (textSizeVal) textSizeVal.textContent = maxS;
+                    }
+                }
+            }
         }
     </script>
     <script>
@@ -3495,29 +4373,47 @@
             isDraggingClassicText = false;
             isRotatingClassicText = false;
 
-            // تحريك / تدوير النص في الوضع الكلاسيكي
+            // تحريك / تدوير / إلغاء تحديد النص في الوضع الكلاسيكي
             if (mode === 'classic' && !isDrawingMode && textInput && textInput.value.trim()) {
                 const textSize = parseInt(textSizeRange.value) || 30;
                 ctx.font = `bold ${textSize}px Tajawal, sans-serif`;
                 const tw = Math.max(ctx.measureText(sanitizeInput(textInput.value.trim())).width, 40);
                 const th = textSize;
+                const s = getUiScale();
                 const moveHx = textX;
-                const moveHy = textY - th / 2 - 22;
-                const rotHx = textX + tw / 2 + 22;
+                const moveHy = textY - th / 2 - 22 * s;
+                const rotHx = textX + tw / 2 + 22 * s;
                 const rotHy = textY;
-                if (Math.hypot(pos.x - rotHx, pos.y - rotHy) <= 20) {
+                const hitR = 20 * s;
+                const pad = 8 * s;
+                const insideText =
+                    pos.x >= textX - tw / 2 - pad && pos.x <= textX + tw / 2 + pad &&
+                    pos.y >= textY - th / 2 - pad && pos.y <= textY + th / 2 + pad;
+
+                if (classicTextSelected && Math.hypot(pos.x - rotHx, pos.y - rotHy) <= hitR) {
                     isRotatingClassicText = true;
                     classicTextRotateStart = Math.atan2(pos.y - textY, pos.x - textX);
                     classicTextRotStartVal = classicTextRotation;
                     return;
                 }
-                if (Math.hypot(pos.x - moveHx, pos.y - moveHy) <= 20 ||
-                    (pos.x >= textX - tw / 2 - 8 && pos.x <= textX + tw / 2 + 8 &&
-                     pos.y >= textY - th / 2 - 8 && pos.y <= textY + th / 2 + 8)) {
+                if (classicTextSelected && Math.hypot(pos.x - moveHx, pos.y - moveHy) <= hitR) {
                     isDraggingClassicText = true;
                     dragStartX = pos.x;
                     dragStartY = pos.y;
                     return;
+                }
+                if (insideText) {
+                    classicTextSelected = true;
+                    isDraggingClassicText = true;
+                    dragStartX = pos.x;
+                    dragStartY = pos.y;
+                    processImageDrawing();
+                    return;
+                }
+                // ضغط على مكان فارغ = إلغاء تحديد النص
+                if (classicTextSelected) {
+                    classicTextSelected = false;
+                    processImageDrawing();
                 }
             }
 
@@ -3526,7 +4422,7 @@
                 if (isEraserMode) {
                     eraseAtPoint(pos, brushSize);
                     currentPath = { erase: true, points: [pos] };
-                    if (mode === 'classic') processImageDrawing();
+                    if (mode === 'classic') scheduleClassicRedraw();
                     else renderScratchCanvas();
                 } else {
                     currentPath = {
@@ -3536,7 +4432,7 @@
                         erase: false
                     };
                     freehandPaths.push(currentPath);
-                    if (mode === 'classic') processImageDrawing();
+                    if (mode === 'classic') scheduleClassicRedraw();
                 }
                 return;
             }
@@ -3600,14 +4496,14 @@
                 textY += pos.y - dragStartY;
                 dragStartX = pos.x;
                 dragStartY = pos.y;
-                processImageDrawing();
+                scheduleClassicRedraw();
                 return;
             }
             // تدوير نص الوضع الكلاسيكي
             if (mode === 'classic' && isRotatingClassicText) {
                 const ang = Math.atan2(pos.y - textY, pos.x - textX);
                 classicTextRotation = classicTextRotStartVal + ((ang - classicTextRotateStart) * 180) / Math.PI;
-                processImageDrawing();
+                scheduleClassicRedraw();
                 return;
             }
 
@@ -3617,7 +4513,7 @@
                 if (e && e.cancelable) e.preventDefault();
                 if (isEraserMode || currentPath.erase) {
                     eraseAtPoint(pos, brushSize);
-                    if (mode === 'classic') processImageDrawing();
+                    if (mode === 'classic') scheduleClassicRedraw();
                     else scheduleBrushRender();
                 } else {
                     const prev = currentPath.points[currentPath.points.length - 1];
@@ -3637,7 +4533,7 @@
                     } else {
                         currentPath.points.push(pos);
                     }
-                    if (mode === 'classic') processImageDrawing();
+                    if (mode === 'classic') scheduleClassicRedraw();
                     else scheduleBrushRender();
                 }
                 return;
@@ -3895,7 +4791,11 @@
             textOpacityVal.textContent = textOpacityRange.value;
             scheduleClassicRedraw();
         });
-        textInput.addEventListener('input', scheduleClassicRedraw);
+        textInput.addEventListener('input', function() {
+            if (textInput.value.trim()) classicTextSelected = true;
+            else classicTextSelected = false;
+            scheduleClassicRedraw();
+        });
 
         // شريط جودة الضغط (خفيف أثناء السحب)
         let qualityEstimateTimer = null;
@@ -4069,9 +4969,12 @@
 
         // ==================== الخصوصية وشروط الاستخدام ====================
         (function setupLegalModals() {
+            const aboutModal = document.getElementById('aboutModal');
             const privacyModal = document.getElementById('privacyModal');
             const termsModal = document.getElementById('termsModal');
+            const openAboutBtn = document.getElementById('openAboutBtn');
             const openPrivacyBtn = document.getElementById('openPrivacyBtn');
+            const closeAboutBtn = document.getElementById('closeAboutBtn');
             const openTermsBtn = document.getElementById('openTermsBtn');
             const closePrivacyBtn = document.getElementById('closePrivacyBtn');
             const closeTermsBtn = document.getElementById('closeTermsBtn');
@@ -4085,10 +4988,13 @@
                 if (modal) modal.style.display = 'none';
             }
 
+            if (openAboutBtn) openAboutBtn.addEventListener('click', function() { openModal(aboutModal); });
             if (openPrivacyBtn) openPrivacyBtn.addEventListener('click', function() { openModal(privacyModal); });
             if (openTermsBtn) openTermsBtn.addEventListener('click', function() { openModal(termsModal); });
+            if (closeAboutBtn) closeAboutBtn.addEventListener('click', function() { closeModal(aboutModal); });
             if (closePrivacyBtn) closePrivacyBtn.addEventListener('click', function() { closeModal(privacyModal); });
             if (closeTermsBtn) closeTermsBtn.addEventListener('click', function() { closeModal(termsModal); });
+            if (aboutModal) aboutModal.addEventListener('click', function(e) { if (e.target === aboutModal) closeModal(aboutModal); });
             if (privacyModal) privacyModal.addEventListener('click', function(e) { if (e.target === privacyModal) closeModal(privacyModal); });
             if (termsModal) termsModal.addEventListener('click', function(e) { if (e.target === termsModal) closeModal(termsModal); });
         })();
@@ -4103,120 +5009,204 @@
                 return value;
             }
 
-            function bindQrInstance(ids) {
-                var lastQrDataUrl = null;
-                var qrInput = document.getElementById(ids.input);
-                var qrPreview = document.getElementById(ids.preview);
-                var qrPreviewWrap = document.getElementById(ids.wrap);
-                var generateQrBtn = document.getElementById(ids.generate);
-                var downloadQrBtn = document.getElementById(ids.download);
-                var addQrToCanvasBtn = ids.add ? document.getElementById(ids.add) : null;
+            var lastQrDataUrl = null;
+            var qrLogoObjectUrl = null;
+            var qrInput = document.getElementById('homeQrInput');
+            var qrPreview = document.getElementById('homeQrPreview');
+            var qrPreviewWrap = document.getElementById('homeQrPreviewWrap');
+            var generateQrBtn = document.getElementById('homeGenerateQrBtn');
+            var downloadQrBtn = document.getElementById('homeDownloadQrBtn');
+            var colorDarkEl = document.getElementById('homeQrColorDark');
+            var colorLightEl = document.getElementById('homeQrColorLight');
+            var colorDarkHex = document.getElementById('homeQrColorDarkHex');
+            var colorLightHex = document.getElementById('homeQrColorLightHex');
+            var logoInput = document.getElementById('homeQrLogoInput');
+            var logoBtn = document.getElementById('homeQrLogoBtn');
+            var logoName = document.getElementById('homeQrLogoName');
 
-                function getQrImageUrl() {
-                    var img = qrPreview ? qrPreview.querySelector('img') : null;
-                    var canvasEl = qrPreview ? qrPreview.querySelector('canvas') : null;
-                    return lastQrDataUrl || (img && img.src) || (canvasEl && canvasEl.toDataURL('image/png')) || null;
+            function normalizeHex(v) {
+                v = String(v || '').trim();
+                if (!v) return null;
+                if (v[0] !== '#') v = '#' + v;
+                if (/^#([0-9a-fA-F]{3})$/.test(v)) {
+                    v = '#' + v[1] + v[1] + v[2] + v[2] + v[3] + v[3];
+                }
+                if (!/^#([0-9a-fA-F]{6})$/.test(v)) return null;
+                return v.toLowerCase();
+            }
+            function bindColorPair(picker, hexInput) {
+                if (!picker || !hexInput) return;
+                picker.addEventListener('input', function() {
+                    hexInput.value = picker.value;
+                });
+                hexInput.addEventListener('input', function() {
+                    var cleaned = hexInput.value.replace(/[^#0-9a-fA-F]/g, '');
+                    if (cleaned !== hexInput.value) hexInput.value = cleaned.slice(0, 15);
+                });
+                hexInput.addEventListener('change', function() {
+                    var h = normalizeHex(hexInput.value);
+                    if (h) {
+                        picker.value = h;
+                        hexInput.value = h;
+                    }
+                });
+            }
+            bindColorPair(colorDarkEl, colorDarkHex);
+            bindColorPair(colorLightEl, colorLightHex);
+
+            function getQrImageUrl() {
+                return lastQrDataUrl || null;
+            }
+
+            function finalizeQrImage(baseUrl, logoUrl, size, done) {
+                var out = document.createElement('canvas');
+                out.width = size;
+                out.height = size;
+                var octx = out.getContext('2d');
+                var baseImg = new Image();
+                baseImg.onload = function() {
+                    octx.drawImage(baseImg, 0, 0, size, size);
+                    if (!logoUrl) {
+                        done(out.toDataURL('image/png'));
+                        return;
+                    }
+                    var logo = new Image();
+                    logo.onload = function() {
+                        // الشعار حوالي 18% من المقاس مع خلفية بيضاء خفيفة لتحسين المسح
+                        var logoSize = Math.round(size * 0.18);
+                        var pad = Math.round(logoSize * 0.12);
+                        var box = logoSize + pad * 2;
+                        var x = (size - box) / 2;
+                        var y = (size - box) / 2;
+                        octx.fillStyle = (colorLightEl && colorLightEl.value) ? colorLightEl.value : '#ffffff';
+                        octx.fillRect(x, y, box, box);
+                        octx.drawImage(logo, x + pad, y + pad, logoSize, logoSize);
+                        done(out.toDataURL('image/png'));
+                    };
+                    logo.onerror = function() { done(out.toDataURL('image/png')); };
+                    logo.src = logoUrl;
+                };
+                baseImg.onerror = function() { done(null); };
+                baseImg.src = baseUrl;
+            }
+
+            function generateQr() {
+                if (typeof QRCode === 'undefined') {
+                    showAlert('تنبيه', 'تعذر تحميل مكتبة QR. تحقق من الاتصال ثم أعد المحاولة.');
+                    return;
+                }
+                var val = safeQrText(qrInput ? qrInput.value : '');
+                if (!val) {
+                    showAlert('تنبيه', 'الرجاء إدخال نص أو رابط أولاً!');
+                    return;
+                }
+                var dark = normalizeHex(colorDarkHex && colorDarkHex.value) || (colorDarkEl && colorDarkEl.value) || '#000000';
+                var light = normalizeHex(colorLightHex && colorLightHex.value) || (colorLightEl && colorLightEl.value) || '#ffffff';
+                if (colorDarkEl) colorDarkEl.value = dark;
+                if (colorLightEl) colorLightEl.value = light;
+                if (colorDarkHex) colorDarkHex.value = dark;
+                if (colorLightHex) colorLightHex.value = light;
+                // تباين بسيط: إذا اللونان متطابقان نرجع للأسود/الأبيض
+                if (dark.toLowerCase() === light.toLowerCase()) {
+                    dark = '#000000';
+                    light = '#ffffff';
                 }
 
-                function generateQr() {
-                    if (typeof QRCode === 'undefined') {
-                        showAlert('تنبيه', 'تعذر تحميل مكتبة QR. تحقق من الاتصال ثم أعد المحاولة.');
-                        return;
-                    }
-                    var val = safeQrText(qrInput ? qrInput.value : '');
-                    if (!val) {
-                        showAlert('تنبيه', 'الرجاء إدخال نص أو رابط أولاً!');
-                        return;
-                    }
-                    if (qrPreview) qrPreview.innerHTML = '';
-                    lastQrDataUrl = null;
-                    try {
-                        // eslint-disable-next-line no-new
-                        new QRCode(qrPreview, {
-                            text: val,
-                            width: 180,
-                            height: 180,
-                            colorDark: '#000000',
-                            colorLight: '#ffffff',
-                            correctLevel: QRCode.CorrectLevel.H
+                if (qrPreview) qrPreview.innerHTML = '';
+                lastQrDataUrl = null;
+                var size = 220;
+                try {
+                    new QRCode(qrPreview, {
+                        text: val,
+                        width: size,
+                        height: size,
+                        colorDark: dark,
+                        colorLight: light,
+                        correctLevel: QRCode.CorrectLevel.H
+                    });
+                    if (qrPreviewWrap) qrPreviewWrap.style.display = 'block';
+
+                    setTimeout(function() {
+                        var img = qrPreview ? qrPreview.querySelector('img') : null;
+                        var canvasEl = qrPreview ? qrPreview.querySelector('canvas') : null;
+                        var baseUrl = (img && img.src) || (canvasEl && canvasEl.toDataURL('image/png'));
+                        if (!baseUrl) return;
+                        finalizeQrImage(baseUrl, qrLogoObjectUrl, size, function(finalUrl) {
+                            if (!finalUrl) return;
+                            lastQrDataUrl = finalUrl;
+                            // عرض النتيجة النهائية
+                            if (qrPreview) {
+                                qrPreview.innerHTML = '';
+                                var show = document.createElement('img');
+                                show.src = finalUrl;
+                                show.alt = 'QR';
+                                show.style.display = 'block';
+                                show.style.maxWidth = '220px';
+                                qrPreview.appendChild(show);
+                            }
                         });
-                        if (qrPreviewWrap) qrPreviewWrap.style.display = 'block';
-                        setTimeout(function() {
-                            var img = qrPreview ? qrPreview.querySelector('img') : null;
-                            var canvasEl = qrPreview ? qrPreview.querySelector('canvas') : null;
-                            if (img && img.src) lastQrDataUrl = img.src;
-                            else if (canvasEl) lastQrDataUrl = canvasEl.toDataURL('image/png');
-                        }, 100);
-                    } catch (e) {
-                        showAlert('تنبيه', 'تعذر إنشاء رمز QR.');
-                    }
-                }
-
-                if (generateQrBtn) generateQrBtn.addEventListener('click', generateQr);
-                if (qrInput) {
-                    qrInput.addEventListener('keypress', function(e) {
-                        if (e.key === 'Enter') generateQr();
-                    });
-                }
-                if (downloadQrBtn) {
-                    downloadQrBtn.addEventListener('click', function() {
-                        var url = getQrImageUrl();
-                        if (!url) {
-                            showAlert('تنبيه', 'أنشئ الرمز أولاً.');
-                            return;
-                        }
-                        var link = document.createElement('a');
-                        link.href = url;
-                        link.download = 'vexlii-qrcode.png';
-                        link.click();
-                    });
-                }
-                if (addQrToCanvasBtn) {
-                    addQrToCanvasBtn.addEventListener('click', function() {
-                        if (mode !== 'scratch') {
-                            showAlert('تنبيه', 'أضف رمز QR من وضع التصميم الحر (الصفحة البيضاء).');
-                            return;
-                        }
-                        var url = getQrImageUrl();
-                        if (!url) {
-                            showAlert('تنبيه', 'أنشئ الرمز أولاً.');
-                            return;
-                        }
-                        var img = new Image();
-                        img.onload = function() {
-                            var size = Math.min(canvas.width, canvas.height) * 0.35;
-                            layers.push({
-                                type: 'image',
-                                img: img,
-                                x: (canvas.width - size) / 2,
-                                y: (canvas.height - size) / 2,
-                                w: size,
-                                h: size,
-                                opacity: 1,
-                                shadow: 'none',
-                                locked: false
-                            });
-                            activeLayerIndex = layers.length - 1;
-                            updateLayersUI();
-                            renderScratchCanvas();
-                            showAlert('تم ✓', 'تمت إضافة رمز QR إلى اللوحة.');
-                        };
-                        img.onerror = function() {
-                            showAlert('تنبيه', 'تعذر إضافة الرمز إلى اللوحة.');
-                        };
-                        img.src = url;
-                    });
+                    }, 120);
+                } catch (e) {
+                    showAlert('تنبيه', 'تعذر إنشاء رمز QR.');
                 }
             }
 
-            // الصفحة الرئيسية فقط (أداة حرة)
-            bindQrInstance({
-                input: 'homeQrInput',
-                preview: 'homeQrPreview',
-                wrap: 'homeQrPreviewWrap',
-                generate: 'homeGenerateQrBtn',
-                download: 'homeDownloadQrBtn'
-            });
+            if (logoBtn && logoInput) {
+                logoBtn.addEventListener('click', function() {
+                    logoInput.click();
+                });
+            }
+            if (logoInput) {
+                logoInput.addEventListener('change', function() {
+                    var file = logoInput.files && logoInput.files[0];
+                    if (qrLogoObjectUrl) {
+                        try { URL.revokeObjectURL(qrLogoObjectUrl); } catch (e) {}
+                        qrLogoObjectUrl = null;
+                    }
+                    if (!file) {
+                        if (logoName) {
+                            logoName.style.display = 'none';
+                            logoName.textContent = '';
+                        }
+                        return;
+                    }
+                    if (!file.type || !file.type.startsWith('image/')) {
+                        showAlert('تنبيه', 'اختر صورة صالحة للشعار.');
+                        logoInput.value = '';
+                        return;
+                    }
+                    if (file.size > 2 * 1024 * 1024) {
+                        showAlert('تنبيه', 'حجم الشعار كبير. اختر صورة أصغر من 2MB.');
+                        logoInput.value = '';
+                        return;
+                    }
+                    qrLogoObjectUrl = URL.createObjectURL(file);
+                    if (logoName) {
+                        logoName.style.display = 'block';
+                        logoName.textContent = 'تم اختيار: ' + file.name;
+                    }
+                });
+            }
+
+            if (generateQrBtn) generateQrBtn.addEventListener('click', generateQr);
+            if (qrInput) {
+                qrInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') generateQr();
+                });
+            }
+            if (downloadQrBtn) {
+                downloadQrBtn.addEventListener('click', function() {
+                    var url = getQrImageUrl();
+                    if (!url) {
+                        showAlert('تنبيه', 'أنشئ الرمز أولاً.');
+                        return;
+                    }
+                    var link = document.createElement('a');
+                    link.href = url;
+                    link.download = 'vexlii-qrcode.png';
+                    link.click();
+                });
+            }
         })();
 
         // ==================== رفع صورة والحصول على رابط (ImgBB) ====================
