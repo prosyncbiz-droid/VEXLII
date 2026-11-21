@@ -10,6 +10,7 @@
     <meta name="keywords" content="Vexlii, منصة تصميم, تعديل صور, ضغط صور, تصميم عربي, مولد QR, استوديو صور, تصميم إنستغرام">
     <meta name="author" content="Vexlii">
     <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="_DUC5wQW9pNPKyXEZcPOJv2XkIGGDRYmHQ03ebser5g" />
     <link rel="canonical" href="https://vexlii.netlify.app/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ar_AR">
@@ -436,6 +437,62 @@
             background: linear-gradient(135deg, #8b5cf6, #6d28d9);
             color: white;
             box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+        }
+        .crop-ratio-btn.active {
+            background: linear-gradient(135deg, #8b5cf6, #6d28d9) !important;
+            color: #fff !important;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+        }
+        .scratch-pages-bar {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            margin: -6px 0 12px;
+            padding: 8px 10px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow-x: auto;
+        }
+        .scratch-pages-list {
+            display: flex;
+            gap: 6px;
+            flex: 1;
+            min-width: 0;
+            overflow-x: auto;
+        }
+        .page-tab-btn {
+            border: 1px solid #e2e8f0;
+            background: #fff;
+            color: #64748b;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 6px 12px;
+            border-radius: 999px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .page-tab-btn.active {
+            background: #f5f3ff;
+            border-color: #c4b5fd;
+            color: #6d28d9;
+        }
+        .page-action-btn {
+            border: none;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 6px 12px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .page-action-btn.add {
+            background: #ede9fe;
+            color: #6d28d9;
+        }
+        .page-action-btn.del {
+            background: #fee2e2;
+            color: #dc2626;
         }
         .panel-section {
             display: none;
@@ -1424,6 +1481,14 @@
             <button class="tool-btn" id="resetScratchBtn" style="background:#fee2e2; color:#dc2626;">🔄 إعادة</button>
         </div>
 
+        <!-- شريط صفحات التصميم الحر -->
+        <div id="scratchPagesBar" class="scratch-pages-bar" style="display:none;">
+            <div id="scratchPagesList" class="scratch-pages-list"></div>
+            <button type="button" id="addScratchPageBtn" class="page-action-btn add" title="إضافة صفحة">+ صفحة</button>
+            <button type="button" id="deleteScratchPageBtn" class="page-action-btn del" title="حذف الصفحة الحالية">حذف</button>
+            <button type="button" id="downloadAllPagesBtn" class="page-action-btn add" title="تنزيل كل الصفحات" style="background:#dcfce7;color:#15803d;">⬇️ الكل</button>
+        </div>
+
         <!-- الألواح الكلاسيكية -->
         <div class="panel-section" id="filtersPanel">
             <p style="font-size: 0.8rem; font-weight: 800; color: #1e293b;">اختر فلتر جاهز:</p>
@@ -1437,13 +1502,17 @@
         </div>
 
         <div class="panel-section" id="cropPanel">
-            <p style="font-size: 0.8rem; font-weight: 800; color: #1e293b;">اختر قياس القص:</p>
-            <div class="crop-grid">
-                <button class="btn btn-secondary" style="margin:0; font-size:0.8rem;" onclick="cropImage(1, 1)">مربع (1:1)</button>
-                <button class="btn btn-secondary" style="margin:0; font-size:0.8rem;" onclick="cropImage(4, 3)">أفقي (4:3)</button>
-                <button class="btn btn-secondary" style="margin:0; font-size:0.8rem;" onclick="cropImage(16, 9)">عريض (16:9)</button>
-                <button class="btn btn-secondary" style="margin:0; font-size:0.8rem;" onclick="cropImage('circle', 'circle')">قص دائري ⭕</button>
-                <button class="btn btn-secondary" style="grid-column: span 2; margin:0; font-size:0.8rem;" onclick="cropImage(0, 0)">إلغاء القص</button>
+            <p style="font-size: 0.8rem; font-weight: 800; color: #1e293b;">اقتصاص سريع بنسب جاهزة:</p>
+            <div class="crop-grid" id="cropRatioGrid">
+                <button type="button" class="btn btn-secondary crop-ratio-btn" style="margin:0; font-size:0.78rem;" data-crop="1:1" onclick="cropImage(1, 1)">مربع 1:1</button>
+                <button type="button" class="btn btn-secondary crop-ratio-btn" style="margin:0; font-size:0.78rem;" data-crop="4:5" onclick="cropImage(4, 5)">عمودي 4:5</button>
+                <button type="button" class="btn btn-secondary crop-ratio-btn" style="margin:0; font-size:0.78rem;" data-crop="3:4" onclick="cropImage(3, 4)">عمودي 3:4</button>
+                <button type="button" class="btn btn-secondary crop-ratio-btn" style="margin:0; font-size:0.78rem;" data-crop="9:16" onclick="cropImage(9, 16)">ستوري 9:16</button>
+                <button type="button" class="btn btn-secondary crop-ratio-btn" style="margin:0; font-size:0.78rem;" data-crop="4:3" onclick="cropImage(4, 3)">أفقي 4:3</button>
+                <button type="button" class="btn btn-secondary crop-ratio-btn" style="margin:0; font-size:0.78rem;" data-crop="16:9" onclick="cropImage(16, 9)">عريض 16:9</button>
+                <button type="button" class="btn btn-secondary crop-ratio-btn" style="margin:0; font-size:0.78rem;" data-crop="21:9" onclick="cropImage(21, 9)">بانوراما 21:9</button>
+                <button type="button" class="btn btn-secondary crop-ratio-btn" style="margin:0; font-size:0.78rem;" data-crop="circle" onclick="cropImage('circle', 'circle')">دائري ⭕</button>
+                <button type="button" class="btn btn-secondary" style="grid-column: span 2; margin:0; font-size:0.78rem; background:#fee2e2; color:#dc2626;" onclick="cropImage(0, 0)">إلغاء القص</button>
             </div>
         </div>
 
@@ -1666,6 +1735,8 @@
                 <div class="shape-card" onclick="addShapeLayer('rect')">مستطيل ⬛</div>
                 <div class="shape-card" onclick="addShapeLayer('frame')">إطار ▭</div>
                 <div class="shape-card" onclick="addShapeLayer('circle')">دائرة ⚪</div>
+                <div class="shape-card" onclick="addShapeLayer('ring')">دائرة فارغة ⭕</div>
+                <div class="shape-card" onclick="addShapeLayer('halfcircle')">نصف دائرة ◐</div>
                 <div class="shape-card" onclick="addShapeLayer('triangle')">مثلث 🔺</div>
                 <div class="shape-card" onclick="addShapeLayer('diamond')">معين 🔶</div>
                 <div class="shape-card" onclick="addShapeLayer('star')">نجمة ⭐</div>
@@ -1716,15 +1787,11 @@
                 <div class="filter-card" style="font-size:1.4rem;" onclick="addSticker('✅')">✅</div>
                 <div class="filter-card" style="font-size:1.4rem;" onclick="addSticker('💬')">💬</div>
             </div>
-            <p style="font-size:0.75rem;font-weight:800;color:#475569;margin:6px 0 4px;">عبارات موسمية وعامة</p>
+            <p style="font-size:0.75rem;font-weight:800;color:#475569;margin:6px 0 4px;">عبارات عامة</p>
             <div class="filters-grid" id="stickersGrid" style="grid-template-columns: 1fr 1fr; gap:8px;">
                 <div class="filter-card" onclick="addSticker('صباح الخير')">صباح الخير</div>
                 <div class="filter-card" onclick="addSticker('مساء الخير')">مساء الخير</div>
                 <div class="filter-card" onclick="addSticker('أهلاً وسهلاً')">أهلاً وسهلاً</div>
-                <div class="filter-card" onclick="addSticker('كل عام وأنتم بخير')">كل عام وأنتم بخير</div>
-                <div class="filter-card" onclick="addSticker('عيد مبارك')">عيد مبارك</div>
-                <div class="filter-card" onclick="addSticker('رمضان كريم')">رمضان كريم</div>
-                <div class="filter-card" onclick="addSticker('سنة جديدة سعيدة')">سنة جديدة سعيدة</div>
                 <div class="filter-card" onclick="addSticker('مبروك')">مبروك</div>
                 <div class="filter-card" onclick="addSticker('أحبك')">أحبك</div>
                 <div class="filter-card" onclick="addSticker('شكراً جزيلاً')">شكراً جزيلاً</div>
@@ -1734,6 +1801,25 @@
                 <div class="filter-card" onclick="addSticker('الحياة جميلة')">الحياة جميلة</div>
                 <div class="filter-card" onclick="addSticker('السلام عليكم')">السلام عليكم</div>
                 <div class="filter-card" onclick="addSticker('نحب الحياة')">نحب الحياة</div>
+            </div>
+            <p style="font-size:0.75rem;font-weight:800;color:#475569;margin:10px 0 4px;">ملصقات موسمية وعروض</p>
+            <div class="filters-grid" style="grid-template-columns: 1fr 1fr; gap:8px;">
+                <div class="filter-card" onclick="addSticker('عرض خاص')">عرض خاص</div>
+                <div class="filter-card" onclick="addSticker('تخفيض')">تخفيض</div>
+                <div class="filter-card" onclick="addSticker('جديد')">جديد</div>
+                <div class="filter-card" onclick="addSticker('حصري')">حصري</div>
+                <div class="filter-card" onclick="addSticker('لفترة محدودة')">لفترة محدودة</div>
+                <div class="filter-card" onclick="addSticker('توصيل مجاني')">توصيل مجاني</div>
+                <div class="filter-card" onclick="addSticker('أفضل سعر')">أفضل سعر</div>
+                <div class="filter-card" onclick="addSticker('اطلب الآن')">اطلب الآن</div>
+                <div class="filter-card" onclick="addSticker('كل عام وأنتم بخير')">كل عام وأنتم بخير</div>
+                <div class="filter-card" onclick="addSticker('عيد مبارك')">عيد مبارك</div>
+                <div class="filter-card" onclick="addSticker('رمضان كريم')">رمضان كريم</div>
+                <div class="filter-card" onclick="addSticker('سنة جديدة سعيدة')">سنة جديدة سعيدة</div>
+                <div class="filter-card" onclick="addSticker('جمعة مباركة')">جمعة مباركة</div>
+                <div class="filter-card" onclick="addSticker('صيف سعيد')">صيف سعيد</div>
+                <div class="filter-card" onclick="addSticker('عودة المدارس')">عودة المدارس</div>
+                <div class="filter-card" onclick="addSticker('عرض نهاية الأسبوع')">عرض نهاية الأسبوع</div>
             </div>
         </div>
 
@@ -1778,15 +1864,17 @@
             </div>
         </div>
 
-        <!-- ظلال العنصر المحدد -->
+        <!-- ظلال وتوهج العنصر المحدد -->
         <div class="panel-section" id="shadowPanel">
-            <p style="font-size: 0.8rem; font-weight: 800; color: #1e293b;">ظلال العنصر <span class="new-badge">جديد</span></p>
+            <p style="font-size: 0.8rem; font-weight: 800; color: #1e293b;">ظلال وتوهج العنصر</p>
             <div class="shadow-presets" id="shadowPresets">
                 <div class="shadow-chip selected" data-shadow="none" onclick="setLayerShadow('none')">بدون</div>
                 <div class="shadow-chip" data-shadow="soft" onclick="setLayerShadow('soft')">خفيفة</div>
                 <div class="shadow-chip" data-shadow="medium" onclick="setLayerShadow('medium')">متوسطة</div>
                 <div class="shadow-chip" data-shadow="strong" onclick="setLayerShadow('strong')">قوية</div>
-                <div class="shadow-chip" data-shadow="glow" onclick="setLayerShadow('glow')">توهج</div>
+                <div class="shadow-chip" data-shadow="glowSoft" onclick="setLayerShadow('glowSoft')">توهج ناعم</div>
+                <div class="shadow-chip" data-shadow="glow" onclick="setLayerShadow('glow')">توهج قوي</div>
+                <div class="shadow-chip" data-shadow="neon" onclick="setLayerShadow('neon')">نيون</div>
             </div>
         </div>
 
@@ -1830,11 +1918,11 @@
         </div>
     </div>
 
-    <!-- القائمة المنبثقة من الأسفل (روابط المشاريع) -->
+    <!-- القائمة المنبثقة من الأسفل -->
     <div class="bottom-sheet-overlay" id="bottomSheetOverlay">
         <div class="bottom-sheet" id="bottomSheet">
             <div class="bottom-sheet-handle"></div>
-            <div class="bottom-sheet-title">مشاريع وأدوات أخرى ✨</div>
+            <div class="bottom-sheet-title">تعرّف على المزيد ✨</div>
             
             <a href="https://www.instagram.com/toolbox_1?xtok=MXhzMXh3cXVodzVtOQ==" target="_blank" class="sheet-link-btn instagram" rel="noopener">
                 <span class="icon">🤝</span>
@@ -1924,13 +2012,37 @@
                     📱 إنستغرام بوست
                     <small>1080 × 1080</small>
                 </div>
+                <div class="template-card" data-w="1080" data-h="1350">
+                    📷 إنستغرام عمودي
+                    <small>1080 × 1350</small>
+                </div>
                 <div class="template-card" data-w="1080" data-h="1920">
-                    📲 ستوري إنستغرام
+                    📲 ستوري / ريلز
                     <small>1080 × 1920</small>
                 </div>
                 <div class="template-card" data-w="1200" data-h="630">
-                    📘 بوست فيسبوك
+                    📘 فيسبوك / منشور
                     <small>1200 × 630</small>
+                </div>
+                <div class="template-card" data-w="1280" data-h="720">
+                    ▶️ يوتيوب صورة مصغرة
+                    <small>1280 × 720</small>
+                </div>
+                <div class="template-card" data-w="1500" data-h="500">
+                    🐦 غلاف تويتر / X
+                    <small>1500 × 500</small>
+                </div>
+                <div class="template-card" data-w="1000" data-h="1500">
+                    📌 بينترست
+                    <small>1000 × 1500</small>
+                </div>
+                <div class="template-card" data-w="1080" data-h="1080">
+                    💬 واتساب حالة مربعة
+                    <small>1080 × 1080</small>
+                </div>
+                <div class="template-card" data-w="1240" data-h="1754">
+                    📄 ملصق A4 تقريبي
+                    <small>1240 × 1754</small>
                 </div>
                 <div class="template-card" data-w="0" data-h="0">
                     ✏️ مقاس مخصص
@@ -2147,6 +2259,11 @@
         let brushSize = 8;
         let freehandPaths = [];
         let currentPath = null;
+
+        // صفحات التصميم الحر (حتى 6 صفحات)
+        const MAX_SCRATCH_PAGES = 6;
+        let scratchPages = [];
+        let currentPageIndex = 0;
 
         // نظام Undo
         let undoStack = [];
@@ -2982,6 +3099,7 @@
             canvas.height = h;
 
             scratchCanvasColor = '#ffffff';
+            scratchCanvasGradient = null;
             layers = [];
             freehandPaths = [];
             activeLayerIndex = -1;
@@ -3009,7 +3127,7 @@
                 if (scratchTextSizeVal) scratchTextSizeVal.textContent = scratchTextSizeRange.value;
             }
 
-            renderScratchCanvas();
+            initScratchPages();
         });
 
         function processImageDrawing() {
@@ -3459,30 +3577,72 @@
             }
         }
 
-        function applyLayerShadow(context, shadowType) {
+        function resolveLayerGlowColor(layer, alpha) {
+            let glow = 'rgba(139,92,246,' + alpha + ')';
+            const c = layer && layer.color ? String(layer.color) : '';
+            if (c && /^#([0-9a-fA-F]{6})$/.test(c)) {
+                const r = parseInt(c.slice(1, 3), 16);
+                const g = parseInt(c.slice(3, 5), 16);
+                const b = parseInt(c.slice(5, 7), 16);
+                glow = 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
+            } else if (c && /^#([0-9a-fA-F]{3})$/.test(c)) {
+                const r = parseInt(c[1] + c[1], 16);
+                const g = parseInt(c[2] + c[2], 16);
+                const b = parseInt(c[3] + c[3], 16);
+                glow = 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
+            } else if (c && c.indexOf('rgb') === 0) {
+                const nums = c.match(/\d+(\.\d+)?/g);
+                if (nums && nums.length >= 3) {
+                    glow = 'rgba(' + nums[0] + ',' + nums[1] + ',' + nums[2] + ',' + alpha + ')';
+                }
+            }
+            return glow;
+        }
+
+        function applyLayerShadow(context, shadowType, layer) {
             context.shadowColor = 'transparent';
             context.shadowBlur = 0;
             context.shadowOffsetX = 0;
             context.shadowOffsetY = 0;
             if (!shadowType || shadowType === 'none') return;
+
+            // مقياس أوضح حسب حجم العنصر ليبقى التوهج قويًا على اللوحات الكبيرة
+            let dim = 90;
+            if (layer) {
+                if (layer.type === 'text') dim = Math.max(28, layer.size || 30);
+                else dim = Math.max(layer.w || 90, layer.h || 90);
+            }
+            const scale = Math.max(1, Math.min(3.6, dim / 70));
+
             if (shadowType === 'soft') {
-                context.shadowColor = 'rgba(0,0,0,0.25)';
-                context.shadowBlur = 8;
-                context.shadowOffsetX = 2;
-                context.shadowOffsetY = 3;
-            } else if (shadowType === 'medium') {
-                context.shadowColor = 'rgba(0,0,0,0.4)';
-                context.shadowBlur = 14;
-                context.shadowOffsetX = 4;
+                context.shadowColor = 'rgba(0,0,0,0.38)';
+                context.shadowBlur = 16 * scale;
+                context.shadowOffsetX = 3;
                 context.shadowOffsetY = 5;
-            } else if (shadowType === 'strong') {
+            } else if (shadowType === 'medium') {
                 context.shadowColor = 'rgba(0,0,0,0.55)';
-                context.shadowBlur = 22;
-                context.shadowOffsetX = 6;
-                context.shadowOffsetY = 8;
+                context.shadowBlur = 26 * scale;
+                context.shadowOffsetX = 5;
+                context.shadowOffsetY = 9;
+            } else if (shadowType === 'strong') {
+                context.shadowColor = 'rgba(0,0,0,0.7)';
+                context.shadowBlur = 40 * scale;
+                context.shadowOffsetX = 7;
+                context.shadowOffsetY = 12;
+            } else if (shadowType === 'glowSoft') {
+                context.shadowColor = resolveLayerGlowColor(layer, 0.88);
+                context.shadowBlur = 42 * scale;
+                context.shadowOffsetX = 0;
+                context.shadowOffsetY = 0;
             } else if (shadowType === 'glow') {
-                context.shadowColor = 'rgba(139,92,246,0.7)';
-                context.shadowBlur = 18;
+                context.shadowColor = resolveLayerGlowColor(layer, 1);
+                context.shadowBlur = 72 * scale;
+                context.shadowOffsetX = 0;
+                context.shadowOffsetY = 0;
+            } else if (shadowType === 'neon') {
+                // توهج نيون قوي جدًا بلون العنصر
+                context.shadowColor = resolveLayerGlowColor(layer, 1);
+                context.shadowBlur = 100 * scale;
                 context.shadowOffsetX = 0;
                 context.shadowOffsetY = 0;
             }
@@ -3651,7 +3811,7 @@
             layers.forEach((layer, index) => {
                 ctx.save();
                 ctx.globalAlpha = layer.opacity !== undefined ? layer.opacity : 1.0;
-                applyLayerShadow(ctx, layer.shadow);
+                applyLayerShadow(ctx, layer.shadow, layer);
 
                 // تدوير العنصر حول مركزه
                 if (layer.rotation) {
@@ -3690,6 +3850,20 @@
                     } else if (layer.shape === 'circle') {
                         ctx.beginPath();
                         ctx.arc(cx, cy, Math.min(lw, lh) / 2, 0, Math.PI * 2);
+                        ctx.fill();
+                    } else if (layer.shape === 'ring') {
+                        // دائرة فارغة (حدود فقط) مثل الإطار
+                        const r = Math.min(lw, lh) / 2;
+                        ctx.lineWidth = Math.max(4, Math.min(lw, lh) * 0.06);
+                        ctx.beginPath();
+                        ctx.arc(cx, cy, Math.max(1, r - ctx.lineWidth / 2), 0, Math.PI * 2);
+                        ctx.stroke();
+                    } else if (layer.shape === 'halfcircle') {
+                        // نصف دائرة ممتلئ (الجزء العلوي)
+                        const r = Math.min(lw, lh) / 2;
+                        ctx.beginPath();
+                        ctx.arc(cx, cy, r, Math.PI, 0, false);
+                        ctx.closePath();
                         ctx.fill();
                     } else if (layer.shape === 'triangle') {
                         ctx.beginPath();
@@ -4008,6 +4182,135 @@
             }
         }
 
+        function createEmptyPageState() {
+            return {
+                layers: [],
+                freehandPaths: [],
+                scratchCanvasColor: '#ffffff',
+                scratchCanvasGradient: null,
+                activeLayerIndex: -1
+            };
+        }
+
+        function captureCurrentPageState() {
+            return {
+                layers: layers.map(function(l) {
+                    const copy = Object.assign({}, l);
+                    if (l.img) copy.img = l.img;
+                    return copy;
+                }),
+                freehandPaths: freehandPaths.map(function(p) {
+                    return {
+                        color: p.color,
+                        size: p.size,
+                        erase: !!p.erase,
+                        points: (p.points || []).map(function(pt) { return { x: pt.x, y: pt.y }; })
+                    };
+                }),
+                scratchCanvasColor: scratchCanvasColor,
+                scratchCanvasGradient: scratchCanvasGradient,
+                activeLayerIndex: activeLayerIndex
+            };
+        }
+
+        function applyPageState(state) {
+            layers = (state.layers || []).map(function(l) {
+                const copy = Object.assign({}, l);
+                if (l.img) copy.img = l.img;
+                return copy;
+            });
+            freehandPaths = (state.freehandPaths || []).map(function(p) {
+                return {
+                    color: p.color,
+                    size: p.size,
+                    erase: !!p.erase,
+                    points: (p.points || []).map(function(pt) { return { x: pt.x, y: pt.y }; })
+                };
+            });
+            scratchCanvasColor = state.scratchCanvasColor || '#ffffff';
+            scratchCanvasGradient = state.scratchCanvasGradient || null;
+            activeLayerIndex = typeof state.activeLayerIndex === 'number' ? state.activeLayerIndex : -1;
+            if (activeLayerIndex >= layers.length) activeLayerIndex = layers.length - 1;
+            isDrawingMode = false;
+            isEraserMode = false;
+            currentPath = null;
+            undoStack = [];
+            hideUndoToast();
+            syncScratchTextInputs();
+            renderScratchCanvas();
+            updateLayersUI();
+            updateScratchPagesUI();
+        }
+
+        function saveCurrentPage() {
+            if (!scratchPages.length) return;
+            if (currentPageIndex < 0 || currentPageIndex >= scratchPages.length) return;
+            scratchPages[currentPageIndex] = captureCurrentPageState();
+        }
+
+        function switchScratchPage(index) {
+            if (index < 0 || index >= scratchPages.length) return;
+            if (index === currentPageIndex) return;
+            saveCurrentPage();
+            currentPageIndex = index;
+            applyPageState(scratchPages[currentPageIndex]);
+        }
+
+        function addScratchPage() {
+            if (scratchPages.length >= MAX_SCRATCH_PAGES) {
+                showAlert('تنبيه', 'الحد الأقصى ' + MAX_SCRATCH_PAGES + ' صفحات في الجلسة.');
+                return;
+            }
+            saveCurrentPage();
+            scratchPages.push(createEmptyPageState());
+            currentPageIndex = scratchPages.length - 1;
+            applyPageState(scratchPages[currentPageIndex]);
+        }
+
+        function deleteScratchPage() {
+            if (!scratchPages.length) return;
+            if (scratchPages.length === 1) {
+                // صفحة واحدة: نفرغها بدل الحذف
+                showAlert('تنبيه', 'هذه آخر صفحة. سيتم تفريغها فقط.', true, function() {
+                    scratchPages[0] = createEmptyPageState();
+                    currentPageIndex = 0;
+                    applyPageState(scratchPages[0]);
+                });
+                return;
+            }
+            showAlert('تنبيه', 'هل تريد حذف الصفحة الحالية؟', true, function() {
+                scratchPages.splice(currentPageIndex, 1);
+                if (currentPageIndex >= scratchPages.length) currentPageIndex = scratchPages.length - 1;
+                applyPageState(scratchPages[currentPageIndex]);
+            });
+        }
+
+        function updateScratchPagesUI() {
+            const bar = document.getElementById('scratchPagesBar');
+            const list = document.getElementById('scratchPagesList');
+            if (!bar || !list) return;
+            if (mode !== 'scratch') {
+                bar.style.display = 'none';
+                return;
+            }
+            bar.style.display = 'flex';
+            list.innerHTML = '';
+            scratchPages.forEach(function(_, i) {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'page-tab-btn' + (i === currentPageIndex ? ' active' : '');
+                btn.textContent = 'صفحة ' + (i + 1);
+                btn.addEventListener('click', function() { switchScratchPage(i); });
+                list.appendChild(btn);
+            });
+        }
+
+        function initScratchPages() {
+            scratchPages = [createEmptyPageState()];
+            currentPageIndex = 0;
+            applyPageState(scratchPages[0]);
+        }
+
         function snapshotState() {
             // نسخ عميق بسيط للحالة (الطبقات + الرسومات + الخلفية)
             return {
@@ -4022,6 +4325,7 @@
                     points: p.points.map(pt => ({ x: pt.x, y: pt.y }))
                 })),
                 scratchCanvasColor: scratchCanvasColor,
+                scratchCanvasGradient: scratchCanvasGradient,
                 activeLayerIndex: activeLayerIndex
             };
         }
@@ -4038,10 +4342,15 @@
                 points: p.points.map(pt => ({ x: pt.x, y: pt.y }))
             }));
             scratchCanvasColor = state.scratchCanvasColor;
+            scratchCanvasGradient = state.scratchCanvasGradient || null;
             activeLayerIndex = Math.min(state.activeLayerIndex, layers.length - 1);
             syncScratchTextInputs();
             renderScratchCanvas();
             updateLayersUI();
+            // مزامنة الصفحة الحالية مع حالة التراجع
+            if (scratchPages[currentPageIndex]) {
+                scratchPages[currentPageIndex] = captureCurrentPageState();
+            }
         }
 
         function pushUndo(label) {
@@ -4753,7 +5062,15 @@
 
         function cropImage(w, h) {
             if (w === 'circle') currentCropAspect = 'circle';
+            else if (w === 0 && h === 0) currentCropAspect = 0;
             else currentCropAspect = { w: w, h: h };
+            // تمييز الزر المختار بصريًا
+            document.querySelectorAll('.crop-ratio-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+                const key = btn.getAttribute('data-crop');
+                if (w === 'circle' && key === 'circle') btn.classList.add('active');
+                else if (w && h && key === (w + ':' + h)) btn.classList.add('active');
+            });
             processImageDrawing();
         }
 
@@ -4829,11 +5146,7 @@
         // زر إعادة التعيين في النمط الحر
         resetScratchBtn.addEventListener('click', () => {
             showAlert("تنبيه إعادة الضبط ⚠️", "هل أنت متأكد من مسح اللوحة والبدء من جديد؟", true, () => {
-                scratchCanvasColor = '#ffffff';
-                layers = [];
-                freehandPaths = [];
-                activeLayerIndex = -1;
-                renderScratchCanvas();
+                initScratchPages();
             });
         });
 
@@ -4845,13 +5158,82 @@
                 previewBox.style.display = 'none';
                 classicToolbar.style.display = 'none';
                 scratchToolbar.style.display = 'none';
+                const pagesBar = document.getElementById('scratchPagesBar');
+                if (pagesBar) pagesBar.style.display = 'none';
                 actionButtons.style.display = 'none';
                 homeTriggerBtn.style.display = 'none';
                 document.querySelectorAll('.panel-section').forEach(p => p.style.display = 'none');
                 imageInput.value = '';
                 layerImageInput.value = '';
+                mode = 'classic';
+                scratchPages = [];
+                currentPageIndex = 0;
             });
         });
+
+        // أزرار صفحات التصميم الحر
+        (function setupScratchPagesControls() {
+            const addBtn = document.getElementById('addScratchPageBtn');
+            const delBtn = document.getElementById('deleteScratchPageBtn');
+            const allBtn = document.getElementById('downloadAllPagesBtn');
+            if (addBtn) addBtn.addEventListener('click', function() { addScratchPage(); });
+            if (delBtn) delBtn.addEventListener('click', function() { deleteScratchPage(); });
+            if (allBtn) allBtn.addEventListener('click', function() { downloadAllScratchPages(); });
+        })();
+
+        function downloadAllScratchPages() {
+            if (mode !== 'scratch' || !scratchPages.length) {
+                showAlert('تنبيه', 'لا توجد صفحات للتنزيل.');
+                return;
+            }
+            saveCurrentPage();
+            const total = scratchPages.length;
+            const restoreIndex = currentPageIndex;
+            showAlert('تنزيل الصفحات', 'سيتم تنزيل ' + total + ' صفحة. اسمح بالتنزيلات المتعددة إن طلب المتصفح.');
+
+            let i = 0;
+            function next() {
+                if (i >= total) {
+                    currentPageIndex = restoreIndex;
+                    applyPageState(scratchPages[restoreIndex]);
+                    return;
+                }
+                currentPageIndex = i;
+                // تطبيق الصفحة بدون إعادة بناء شريط الصفحات في كل مرة بشكل ثقيل
+                const state = scratchPages[i];
+                layers = (state.layers || []).map(function(l) {
+                    const copy = Object.assign({}, l);
+                    if (l.img) copy.img = l.img;
+                    return copy;
+                });
+                freehandPaths = (state.freehandPaths || []).map(function(p) {
+                    return {
+                        color: p.color,
+                        size: p.size,
+                        erase: !!p.erase,
+                        points: (p.points || []).map(function(pt) { return { x: pt.x, y: pt.y }; })
+                    };
+                });
+                scratchCanvasColor = state.scratchCanvasColor || '#ffffff';
+                scratchCanvasGradient = state.scratchCanvasGradient || null;
+                activeLayerIndex = -1;
+                renderScratchCanvas();
+                const pageNum = i + 1;
+                canvas.toBlob(function(blob) {
+                    if (blob) {
+                        const a = document.createElement('a');
+                        a.href = URL.createObjectURL(blob);
+                        a.download = 'vexlii-page-' + pageNum + '-' + Date.now() + '.png';
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                    }
+                    i += 1;
+                    setTimeout(next, 450);
+                }, 'image/png');
+            }
+            next();
+        }
 
         function resetValuesToDefault() {
             brightnessRange.value = 100;
@@ -4870,6 +5252,7 @@
         }
 
         downloadBtn.addEventListener('click', function() {
+            if (mode === 'scratch') saveCurrentPage();
             const oldActive = activeLayerIndex;
             activeLayerIndex = -1;
             if (mode === 'scratch') renderScratchCanvas();
