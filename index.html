@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Vexlii - منصة التصميم وتعديل الصور العربية</title>
+    <title>Vexlii - منصة أدوات التصميم والصور المجانية أونلاين</title>
 
     <!-- SEO -->
-    <meta name="description" content="منصة Vexlii العربية لتصميم وتعديل وضغط الصور، توليد QR، ورفع الصور بروابط مباشرة — أدوات بسيطة وسريعة وتعمل من المتصفح.">
-    <meta name="keywords" content="Vexlii, منصة تصميم, تعديل صور, ضغط صور, تصميم عربي, مولد QR, استوديو صور, تصميم إنستغرام">
+    <meta name="description" content="استوديو Vexlii الرقمي: مجموعة أدوات مجانية وسريعة لتعديل وضغط الصور، تشويش الخلفية، استخراج الألوان، وإنشاء رموز QR مباشرة من المتصفح بدون تحميل.">
+    <meta name="keywords" content="Vexlii, فيكسلي, منصة تصميم, تعديل صور, ضغط صور, تصميم عربي, مولد QR, تشويش صور, استخراج ألوان, استوديو صور">
     <meta name="author" content="Vexlii">
     <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="_DUC5wQW9pNPKyXEZcPOJv2XkIGGDRYmHQ03ebser5g" />
@@ -15,12 +15,25 @@
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ar_AR">
     <meta property="og:site_name" content="Vexlii">
-    <meta property="og:title" content="Vexlii - منصة التصميم وتعديل الصور العربية">
-    <meta property="og:description" content="صمّم وعدّل واضغط صورك بسهولة من المتصفح. أدوات عربية سريعة وآمنة.">
+    <meta property="og:title" content="Vexlii - منصة أدوات التصميم والصور المجانية أونلاين">
+    <meta property="og:description" content="استوديو Vexlii الرقمي: تعديل وضغط الصور، تشويش الخلفية، استخراج الألوان، وإنشاء QR مباشرة من المتصفح بدون تحميل.">
     <meta property="og:url" content="https://vexlii.netlify.app/">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Vexlii - منصة التصميم وتعديل الصور">
-    <meta name="twitter:description" content="منصة عربية بسيطة لتصميم وتعديل وضغط الصور وتوليد QR.">
+    <meta name="twitter:title" content="Vexlii - منصة أدوات التصميم والصور المجانية أونلاين">
+    <meta name="twitter:description" content="أدوات عربية مجانية لتعديل وضغط الصور وتشويش الخلفية واستخراج الألوان وتوليد QR من المتصفح.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Vexlii",
+      "url": "https://vexlii.netlify.app/",
+      "description": "استوديو Vexlii الرقمي: مجموعة أدوات مجانية وسريعة لتعديل وضغط الصور، تشويش الخلفية، استخراج الألوان، وإنشاء رموز QR مباشرة من المتصفح بدون تحميل.",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Web Browser",
+      "inLanguage": "ar",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
 
     <!-- PWA / تطبيق -->
     <meta name="theme-color" content="#6d28d9">
@@ -467,6 +480,27 @@
             background: linear-gradient(135deg, #8b5cf6, #6d28d9) !important;
             color: #fff !important;
             box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+        }
+        #homeSlidesStageImg.anim-zoom {
+            animation: vexliiKenBurns 5s ease-in-out infinite alternate;
+        }
+        #homeSlidesStageImg.anim-slide {
+            animation: vexliiSlideIn 0.7s ease-out;
+        }
+        #homeSlidesStageImg.anim-fade {
+            animation: vexliiFadeIn 0.9s ease-in-out;
+        }
+        @keyframes vexliiKenBurns {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.12); }
+        }
+        @keyframes vexliiSlideIn {
+            0% { opacity: 0; transform: translateX(40px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes vexliiFadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
         .scratch-pages-bar {
             display: none;
@@ -1446,6 +1480,113 @@
                 <p id="homeColorStatus" style="font-size:0.72rem; color:#64748b; margin-top:8px; display:none;"></p>
             </div>
 
+            <!-- لوحة العرض التقديمي -->
+            <div id="homeSlidesPanel" class="home-tool-panel" style="display:none;">
+                <div class="home-tool-panel-head">
+                    <span id="homeSlidesTitle">🎞️ عرض تقديمي</span>
+                    <button type="button" class="home-panel-close" data-close-panel="homeSlidesPanel" aria-label="إغلاق">×</button>
+                </div>
+
+                <!-- وضع الإنشاء (صاحب العرض) -->
+                <div id="homeSlidesCreator">
+                    <p style="font-size:0.72rem; color:#64748b; margin-bottom:8px;">ارفع حتى 9 صور وشغّل عرضًا متحركًا. المعاينة محلية — ورابط المشاركة يرفع الصور لخدمة خارجية.</p>
+                    <p style="font-size:0.7rem; color:#b45309; background:#fffbeb; border:1px solid #fde68a; border-radius:8px; padding:8px 10px; margin-bottom:10px;">⚠️ تنويه خصوصية: إنشاء رابط المشاركة يرفع صورك إلى ImgBB (خدمة خارجية). المعاينة المحلية لا ترفع شيئًا.</p>
+                    <input type="file" id="homeSlidesInput" accept="image/jpeg, image/png, image/webp" multiple>
+                    <button type="button" class="btn btn-secondary" id="homeSlidesPickBtn" style="width:100%; margin:0 0 10px 0; font-size:0.82rem;">📤 اختيار صور (حد أقصى 9)</button>
+                    <div id="homeSlidesThumbs" style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-bottom:10px;"></div>
+                    <div class="control-group">
+                        <label>نوع الحركة</label>
+                        <select id="homeSlidesAnim" style="width:100%; padding:8px; border-radius:8px; border:1px solid #e2e8f0;">
+                            <option value="zoom">تكبير سينمائي</option>
+                            <option value="slide">انزلاق</option>
+                            <option value="fade">تلاشي</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>مدة كل صورة</label>
+                        <select id="homeSlidesSpeed" style="width:100%; padding:8px; border-radius:8px; border:1px solid #e2e8f0;">
+                            <option value="2500">2.5 ثانية</option>
+                            <option value="4000" selected>4 ثوانٍ</option>
+                            <option value="6000">6 ثوانٍ</option>
+                        </select>
+                    </div>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px;">
+                        <button type="button" class="btn btn-secondary" id="homeSlidesPreviewBtn" style="margin:0; flex:1;">▶️ معاينة محلية</button>
+                        <button type="button" class="btn btn-success" id="homeSlidesShareBtn" style="margin:0; flex:1;">🔗 رابط مشاركة</button>
+                    </div>
+                    <div id="homeSlidesShareBox" style="display:none; background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:10px; margin-bottom:8px;">
+                        <p style="font-size:0.72rem; color:#64748b; margin-bottom:6px;">رابط العرض:</p>
+                        <input type="text" id="homeSlidesShareUrl" readonly maxlength="2000" style="width:100%; padding:8px; border-radius:8px; border:1px solid #cbd5e1; font-size:0.72rem; direction:ltr; text-align:left; margin-bottom:6px;">
+                        <button type="button" class="btn btn-secondary" id="homeSlidesCopyBtn" style="width:100%; margin:0; font-size:0.8rem;">نسخ الرابط</button>
+                    </div>
+                </div>
+
+                <!-- منطقة العرض المشتركة -->
+                <div id="homeSlidesStageWrap" style="display:none; background:#0f172a; border-radius:12px; overflow:hidden; margin-bottom:8px; aspect-ratio:16/10;">
+                    <img id="homeSlidesStageImg" alt="شريحة" style="width:100%; height:100%; object-fit:contain; display:block;">
+                </div>
+                <div id="homeSlidesPlayer" style="display:none; align-items:center; justify-content:space-between; gap:6px; margin-bottom:8px;">
+                    <button type="button" class="btn btn-secondary" id="homeSlidesPrev" style="margin:0; flex:1;">السابق</button>
+                    <span id="homeSlidesCounter" style="font-size:0.75rem; font-weight:800; color:#7c3aed; min-width:48px; text-align:center;">1/1</span>
+                    <button type="button" class="btn btn-secondary" id="homeSlidesToggle" style="margin:0; flex:1;">إيقاف</button>
+                    <button type="button" class="btn btn-secondary" id="homeSlidesNext" style="margin:0; flex:1;">التالي</button>
+                </div>
+
+                <!-- وضع المشاهد (عميل/ضيف) -->
+                <div id="homeSlidesViewerActions" style="display:none; margin-top:4px;">
+                    <button type="button" class="btn btn-success" id="homeSlidesTryBtn" style="width:100%; margin:0 0 8px 0;">✨ جرّب صنع عرضك الآن</button>
+                    <p style="font-size:0.7rem; color:#64748b; text-align:center;">عرض مشارك من Vexlii</p>
+                </div>
+
+                <p id="homeSlidesStatus" style="font-size:0.72rem; color:#64748b; margin-top:8px; display:none;"></p>
+            </div>
+
+            <!-- لوحة محرر المستندات -->
+            <div id="homeDocPanel" class="home-tool-panel" style="display:none;">
+                <div class="home-tool-panel-head">
+                    <span>📄 محرر المستندات</span>
+                    <button type="button" class="home-panel-close" data-close-panel="homeDocPanel" aria-label="إغلاق">×</button>
+                </div>
+                <p style="font-size:0.72rem; color:#64748b; margin-bottom:8px;">اكتب ونسّق نصك محليًا، ثم صدّر PDF أو Word. لا يتم رفع المحتوى لأي خادم.</p>
+                <div class="control-group">
+                    <label>عنوان المستند</label>
+                    <input type="text" id="homeDocTitle" maxlength="80" placeholder="مستند بدون عنوان" value="مستند بدون عنوان" style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid #e2e8f0;">
+                </div>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px;">
+                    <select id="homeDocFont" style="flex:1; min-width:110px; padding:7px; border-radius:8px; border:1px solid #e2e8f0; font-size:0.8rem;">
+                        <option value="Cairo">Cairo</option>
+                        <option value="Tajawal">Tajawal</option>
+                        <option value="Amiri">Amiri</option>
+                        <option value="Arial">Arial</option>
+                    </select>
+                    <select id="homeDocBlock" style="flex:1; min-width:110px; padding:7px; border-radius:8px; border:1px solid #e2e8f0; font-size:0.8rem;">
+                        <option value="P">نص عادي</option>
+                        <option value="H1">عنوان 1</option>
+                        <option value="H2">عنوان 2</option>
+                        <option value="H3">عنوان 3</option>
+                    </select>
+                    <button type="button" class="btn btn-secondary" id="homeDocBold" style="margin:0; padding:7px 10px;">عريض</button>
+                    <button type="button" class="btn btn-secondary" id="homeDocItalic" style="margin:0; padding:7px 10px;">مائل</button>
+                    <button type="button" class="btn btn-secondary" id="homeDocUnderline" style="margin:0; padding:7px 10px;">تسطير</button>
+                    <button type="button" class="btn btn-secondary" id="homeDocRight" style="margin:0; padding:7px 10px;">يمين</button>
+                    <button type="button" class="btn btn-secondary" id="homeDocCenter" style="margin:0; padding:7px 10px;">وسط</button>
+                    <button type="button" class="btn btn-secondary" id="homeDocLeft" style="margin:0; padding:7px 10px;">يسار</button>
+                    <button type="button" class="btn btn-secondary" id="homeDocUl" style="margin:0; padding:7px 10px;">• قائمة</button>
+                    <button type="button" class="btn btn-secondary" id="homeDocOl" style="margin:0; padding:7px 10px;">1. قائمة</button>
+                </div>
+                <div id="homeDocEditor" contenteditable="true" spellcheck="false" style="min-height:220px; max-height:360px; overflow:auto; background:#fff; color:#111827; border:1px solid #e2e8f0; border-radius:12px; padding:16px; line-height:1.8; font-family:Cairo, Tajawal, sans-serif; font-size:15px; margin-bottom:8px; outline:none;"></div>
+                <div style="display:flex; justify-content:space-between; gap:8px; margin-bottom:8px; font-size:0.72rem; color:#64748b;">
+                    <span id="homeDocStats">الكلمات: 0 | الأحرف: 0</span>
+                    <span id="homeDocSaveState">محفوظ محليًا</span>
+                </div>
+                <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                    <button type="button" class="btn btn-secondary" id="homeDocClearBtn" style="margin:0; flex:1;">مسح</button>
+                    <button type="button" class="btn btn-secondary" id="homeDocWordBtn" style="margin:0; flex:1;">Word</button>
+                    <button type="button" class="btn btn-success" id="homeDocPdfBtn" style="margin:0; flex:1;">PDF</button>
+                </div>
+                <p id="homeDocStatus" style="font-size:0.72rem; color:#64748b; margin-top:8px; display:none;"></p>
+            </div>
+
             <!-- شريط اختصارات هادئ أسفل الصفحة -->
             <p style="text-align:center; font-size:0.75rem; color:#94a3b8; font-weight:700; margin:14px 0 6px;">اضغط على إحداها للبدء</p>
             <div class="decorative-tags" id="homeQuickIcons" aria-label="اختصارات سريعة" style="margin-top:6px; padding-top:10px;">
@@ -1455,6 +1596,8 @@
                 <button type="button" class="tag-pill-btn" data-home-action="compress">ضغط</button>
                 <button type="button" class="tag-pill-btn" data-home-action="blur">تشويش</button>
                 <button type="button" class="tag-pill-btn" data-home-action="color">ألوان</button>
+                <button type="button" class="tag-pill-btn" data-home-action="slides">عرض</button>
+                <button type="button" class="tag-pill-btn" data-home-action="doc">مستند</button>
                 <button type="button" class="tag-pill-btn" data-home-action="repeat">تكرار</button>
                 <button type="button" class="tag-pill-btn" data-home-action="qr">QR</button>
                 <button type="button" class="tag-pill-btn" data-home-action="link">رابط</button>
@@ -1483,9 +1626,11 @@
 
         <!-- 1. شريط النمط الكلاسيكي -->
         <div class="toolbar" id="classicToolbar">
+            <button class="tool-btn" id="classicUploadBtn" type="button" title="رفع صورة">📤 رفع</button>
             <button class="tool-btn active" data-target="filtersPanel">🎨 فلاتر</button>
             <button class="tool-btn" data-target="cropPanel">✂️ قص</button>
             <button class="tool-btn" data-target="rotatePanel">🔄 تدوير</button>
+            <button class="tool-btn" data-target="badgePanel">🏷️ علامة</button>
             <button class="tool-btn" data-target="textPanel">✍️ كتابة</button>
             <button class="tool-btn" data-target="drawPanel">🖌️ رسم</button>
             <button class="tool-btn" data-target="framePanel">🖼️ إطارات</button>
@@ -1537,6 +1682,8 @@
                 <button type="button" class="btn btn-secondary crop-ratio-btn" style="margin:0; font-size:0.78rem;" data-crop="16:9" onclick="cropImage(16, 9)">عريض 16:9</button>
                 <button type="button" class="btn btn-secondary crop-ratio-btn" style="margin:0; font-size:0.78rem;" data-crop="21:9" onclick="cropImage(21, 9)">بانوراما 21:9</button>
                 <button type="button" class="btn btn-secondary crop-ratio-btn" style="margin:0; font-size:0.78rem;" data-crop="circle" onclick="cropImage('circle', 'circle')">دائري ⭕</button>
+                <button type="button" class="btn btn-secondary crop-ratio-btn" style="margin:0; font-size:0.78rem;" data-crop="rounded" onclick="cropImage('rounded', 'rounded')">زوايا مدورة</button>
+                <button type="button" class="btn btn-secondary crop-ratio-btn" style="margin:0; font-size:0.78rem;" data-crop="oval" onclick="cropImage('oval', 'oval')">بيضاوي</button>
                 <button type="button" class="btn btn-secondary" style="grid-column: span 2; margin:0; font-size:0.78rem; background:#fee2e2; color:#dc2626;" onclick="cropImage(0, 0)">إلغاء القص</button>
             </div>
         </div>
@@ -1544,6 +1691,38 @@
         <div class="panel-section" id="rotatePanel">
             <p style="font-size: 0.8rem; font-weight: 800; color: #1e293b;">تدوير الصورة:</p>
             <button class="btn btn-secondary" style="margin:0;" onclick="rotateImage()">🔄 تدوير 90 درجة يميناً</button>
+        </div>
+
+        <!-- علامة تجارية / صورة فوق الصورة الأصلية -->
+        <div class="panel-section" id="badgePanel">
+            <p style="font-size: 0.8rem; font-weight: 800; color: #1e293b;">علامة فوق الصورة <span class="new-badge">جديد</span></p>
+            <p style="font-size:0.72rem; color:#64748b; margin-bottom:8px;">ارفع صورتك الشخصية أو الشعار لتظهر فوق الصورة الأصلية مع قص وتدوير.</p>
+            <input type="file" id="badgeImageInput" accept="image/jpeg, image/png, image/webp" style="display:none;">
+            <button type="button" class="btn btn-secondary" id="badgePickBtn" style="width:100%; margin:0 0 8px 0;">📤 رفع صورة العلامة</button>
+            <div class="control-group">
+                <label>الحجم: <span id="badgeSizeVal">22</span>%</label>
+                <input type="range" id="badgeSizeRange" min="8" max="55" value="22">
+            </div>
+            <div class="control-group">
+                <label>التدوير: <span id="badgeRotVal">0</span>°</label>
+                <input type="range" id="badgeRotRange" min="-180" max="180" value="0">
+            </div>
+            <p style="font-size:0.75rem; font-weight:800; color:#475569; margin:6px 0 4px;">شكل القص</p>
+            <div class="crop-grid" style="margin-bottom:8px;">
+                <button type="button" class="btn btn-secondary badge-shape-btn active" data-badge-shape="circle" style="margin:0; font-size:0.78rem;">دائري</button>
+                <button type="button" class="btn btn-secondary badge-shape-btn" data-badge-shape="rounded" style="margin:0; font-size:0.78rem;">زوايا مدورة</button>
+                <button type="button" class="btn btn-secondary badge-shape-btn" data-badge-shape="none" style="margin:0; font-size:0.78rem;">بدون قص</button>
+            </div>
+            <p style="font-size:0.75rem; font-weight:800; color:#475569; margin:6px 0 4px;">الموضع</p>
+            <div class="crop-grid" style="margin-bottom:8px;">
+                <button type="button" class="btn btn-secondary badge-pos-btn" data-badge-pos="tl" style="margin:0; font-size:0.75rem;">أعلى يمين</button>
+                <button type="button" class="btn btn-secondary badge-pos-btn" data-badge-pos="tr" style="margin:0; font-size:0.75rem;">أعلى يسار</button>
+                <button type="button" class="btn btn-secondary badge-pos-btn active" data-badge-pos="br" style="margin:0; font-size:0.75rem;">أسفل يمين</button>
+                <button type="button" class="btn btn-secondary badge-pos-btn" data-badge-pos="bl" style="margin:0; font-size:0.75rem;">أسفل يسار</button>
+                <button type="button" class="btn btn-secondary badge-pos-btn" data-badge-pos="center" style="margin:0; font-size:0.75rem; grid-column:span 2;">الوسط</button>
+            </div>
+            <button type="button" class="btn btn-secondary" id="badgeRemoveBtn" style="width:100%; margin:0; background:#fee2e2; color:#dc2626;">حذف العلامة</button>
+            <p id="badgeStatus" style="font-size:0.72rem; color:#64748b; margin-top:8px; display:none;"></p>
         </div>
 
         <div class="panel-section" id="textPanel">
@@ -1983,7 +2162,7 @@
                 <p>• محرر صور يدعم الخطوط العربية والملصقات والفلاتر</p>
                 <p>• أدوات ضغط وتغيير حجم الصور</p>
                 <p>• مولد QR وتكرار الصور للطباعة</p>
-                <p>• أدوات تشويش الصور واستخراج الألوان</p>
+                <p>• أدوات تشويش الصور واستخراج الألوان والعرض التقديمي ومحرر المستندات</p>
                 <p style="margin-top:10px;"><strong>تواصل معنا</strong><br>
                 نرحب بأي اقتراح أو ملاحظة أو تعاون عبر:<br>
                 <a href="mailto:prosync.biz@gmail.com" style="color:#7c3aed; font-weight:800;">prosync.biz@gmail.com</a></p>
@@ -2001,6 +2180,8 @@
                 <p>• يتم معالجة الصور والتصاميم <strong>محلياً على جهازك</strong> قدر الإمكان.</p>
                 <p>• لا نطلب إنشاء حساب لاستخدام المحرر الأساسي.</p>
                 <p>• ميزة رفع الصور لرابط خارجي (إن استخدمتها) ترسل الصورة إلى خدمة ImgBB حسب اختيارك، ويظهر تنبيه قبل الرفع.</p>
+                <p>• ميزة <strong>العرض التقديمي</strong>: المعاينة المحلية لا ترفع الصور. أما إنشاء <strong>رابط المشاركة</strong> فيرفع الصور إلى ImgBB (خدمة خارجية) ليصبح العرض قابلًا للمشاركة عبر رابط.</p>
+                <p>• ميزة <strong>محرر المستندات</strong> تعمل محليًا داخل متصفحك، ويتم التصدير إلى PDF أو Word من جهازك دون رفع المحتوى إلى خوادمنا.</p>
                 <p>• قد نستخدم أداة تحليلات مثل Microsoft Clarity لفهم استخدام المنصة بشكل مجهول وتحسين التجربة.</p>
                 <p>• لا نبيع بياناتك الشخصية.</p>
                 <p>• أنت مسؤول عن المحتوى الذي تنشئه أو ترفعه، ويفضّل عدم رفع معلومات حسّاسة.</p>
@@ -2266,6 +2447,12 @@
         let img = new Image();
         let originalFile = null;
         let currentCropAspect = 0;
+        // علامة تجارية فوق الصورة الأصلية (لا تستبدلها)
+        let badgeImg = null;
+        let badgeSizePct = 22;
+        let badgeRotation = 0;
+        let badgeShape = 'circle'; // none | circle | rounded
+        let badgePos = 'br'; // tl tr bl br center
         let currentFrameColor = 'none';
         let currentTextColor = '#ffffff';
         let rotationAngle = 0;
@@ -2435,6 +2622,104 @@
         function closeUrlInputModal() { urlInputModal.style.display = 'none'; }
 
         uploadLabel.addEventListener('click', () => imageInput.click());
+        const classicUploadBtn = document.getElementById('classicUploadBtn');
+        if (classicUploadBtn) {
+            classicUploadBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (imageInput) imageInput.click();
+            });
+        }
+
+        // أداة العلامة فوق الصورة
+        (function setupBadgeOverlay() {
+            const badgeInput = document.getElementById('badgeImageInput');
+            const pickBtn = document.getElementById('badgePickBtn');
+            const sizeRange = document.getElementById('badgeSizeRange');
+            const sizeVal = document.getElementById('badgeSizeVal');
+            const rotRange = document.getElementById('badgeRotRange');
+            const rotVal = document.getElementById('badgeRotVal');
+            const removeBtn = document.getElementById('badgeRemoveBtn');
+            const statusEl = document.getElementById('badgeStatus');
+            const ALLOWED = ['image/jpeg', 'image/png', 'image/webp'];
+            function setBadgeStatus(msg, isError) {
+                if (!statusEl) return;
+                statusEl.style.display = 'block';
+                statusEl.textContent = msg;
+                statusEl.style.color = isError ? '#be123c' : '#047857';
+            }
+            if (pickBtn && badgeInput) {
+                pickBtn.addEventListener('click', function() { badgeInput.click(); });
+            }
+            if (badgeInput) {
+                badgeInput.addEventListener('change', function() {
+                    const file = badgeInput.files && badgeInput.files[0];
+                    badgeInput.value = '';
+                    if (!file) return;
+                    const name = String(file.name || '').toLowerCase();
+                    const extOk = name.endsWith('.jpg') || name.endsWith('.jpeg') || name.endsWith('.png') || name.endsWith('.webp');
+                    if (!file.type || ALLOWED.indexOf(file.type) === -1 || !extOk) {
+                        setBadgeStatus('يُسمح بصور JPG و PNG و WEBP فقط.', true);
+                        return;
+                    }
+                    validateImageMagicBytes(file, function(ok) {
+                        if (!ok) {
+                            setBadgeStatus('الملف ليس صورة صالحة.', true);
+                            return;
+                        }
+                        const reader = new FileReader();
+                        reader.onload = function() {
+                            const im = new Image();
+                            im.onload = function() {
+                                badgeImg = im;
+                                setBadgeStatus('تمت إضافة العلامة فوق الصورة ✓', false);
+                                if (mode === 'classic') processImageDrawing();
+                            };
+                            im.onerror = function() { setBadgeStatus('تعذر فتح الصورة.', true); };
+                            im.src = reader.result;
+                        };
+                        reader.readAsDataURL(file);
+                    });
+                });
+            }
+            if (sizeRange) {
+                sizeRange.addEventListener('input', function() {
+                    badgeSizePct = parseInt(sizeRange.value, 10) || 22;
+                    if (sizeVal) sizeVal.textContent = String(badgeSizePct);
+                    if (mode === 'classic') processImageDrawing();
+                });
+            }
+            if (rotRange) {
+                rotRange.addEventListener('input', function() {
+                    badgeRotation = parseInt(rotRange.value, 10) || 0;
+                    if (rotVal) rotVal.textContent = String(badgeRotation);
+                    if (mode === 'classic') processImageDrawing();
+                });
+            }
+            document.querySelectorAll('.badge-shape-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.badge-shape-btn').forEach(function(b) { b.classList.remove('active'); });
+                    btn.classList.add('active');
+                    badgeShape = btn.getAttribute('data-badge-shape') || 'circle';
+                    if (mode === 'classic') processImageDrawing();
+                });
+            });
+            document.querySelectorAll('.badge-pos-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.badge-pos-btn').forEach(function(b) { b.classList.remove('active'); });
+                    btn.classList.add('active');
+                    badgePos = btn.getAttribute('data-badge-pos') || 'br';
+                    if (mode === 'classic') processImageDrawing();
+                });
+            });
+            if (removeBtn) {
+                removeBtn.addEventListener('click', function() {
+                    badgeImg = null;
+                    setBadgeStatus('تم حذف العلامة.', false);
+                    if (mode === 'classic') processImageDrawing();
+                });
+            }
+        })();
 
         imageInput.addEventListener('change', function(event) {
             const file = event.target.files[0];
@@ -2470,6 +2755,11 @@
                         resetValuesToDefault();
                         rotationAngle = 0;
                         currentCropAspect = 0;
+                        badgeImg = null;
+                        badgeRotation = 0;
+                        badgeSizePct = 22;
+                        badgeShape = 'circle';
+                        badgePos = 'br';
                         isTextInitialized = false;
                         classicTextRotation = 0;
                         classicTextSelected = false;
@@ -2539,6 +2829,8 @@
             const repeatPanel = document.getElementById('homeRepeatPanel');
             const blurPanel = document.getElementById('homeBlurPanel');
             const colorPanel = document.getElementById('homeColorPanel');
+            const slidesPanel = document.getElementById('homeSlidesPanel');
+            const docPanel = document.getElementById('homeDocPanel');
             if (!wrap) return;
 
             function setActive(action) {
@@ -2547,7 +2839,7 @@
                 });
             }
             function hidePanels() {
-                [linkPanel, qrPanel, compressPanel, repeatPanel, blurPanel, colorPanel].forEach(function(p) {
+                [linkPanel, qrPanel, compressPanel, repeatPanel, blurPanel, colorPanel, slidesPanel, docPanel].forEach(function(p) {
                     if (p) p.style.display = 'none';
                 });
                 setActive('');
@@ -2586,6 +2878,10 @@
                     showPanel(blurPanel, 'blur');
                 } else if (action === 'color') {
                     showPanel(colorPanel, 'color');
+                } else if (action === 'slides') {
+                    showPanel(slidesPanel, 'slides');
+                } else if (action === 'doc') {
+                    showPanel(docPanel, 'doc');
                 }
             });
 
@@ -3104,6 +3400,545 @@
             if (copyRgbBtn) copyRgbBtn.addEventListener('click', function() { copyValue(currentRgb, 'RGB'); });
         })();
 
+        // أداة العرض التقديمي (معاينة محلية + مشاركة عبر ImgBB)
+        (function setupHomeSlidesTool() {
+            const MAX_SLIDES = 9;
+            // مفتاح العرض التقديمي من الكود الأصلي
+            const IMGBB_KEY = '39031dc986a2ed8d81a943bc1571695d';
+            const PUBLIC_BASE = 'https://vexlii.netlify.app/';
+            const ALLOWED = ['image/jpeg', 'image/png', 'image/webp'];
+            const input = document.getElementById('homeSlidesInput');
+            const pickBtn = document.getElementById('homeSlidesPickBtn');
+            const thumbs = document.getElementById('homeSlidesThumbs');
+            const animSel = document.getElementById('homeSlidesAnim');
+            const speedSel = document.getElementById('homeSlidesSpeed');
+            const previewBtn = document.getElementById('homeSlidesPreviewBtn');
+            const shareBtn = document.getElementById('homeSlidesShareBtn');
+            const stageWrap = document.getElementById('homeSlidesStageWrap');
+            const stageImg = document.getElementById('homeSlidesStageImg');
+            const player = document.getElementById('homeSlidesPlayer');
+            const prevBtn = document.getElementById('homeSlidesPrev');
+            const nextBtn = document.getElementById('homeSlidesNext');
+            const toggleBtn = document.getElementById('homeSlidesToggle');
+            const counterEl = document.getElementById('homeSlidesCounter');
+            const shareBox = document.getElementById('homeSlidesShareBox');
+            const shareUrl = document.getElementById('homeSlidesShareUrl');
+            const copyBtn = document.getElementById('homeSlidesCopyBtn');
+            const statusEl = document.getElementById('homeSlidesStatus');
+            const creatorBox = document.getElementById('homeSlidesCreator');
+            const viewerActions = document.getElementById('homeSlidesViewerActions');
+            const tryBtn = document.getElementById('homeSlidesTryBtn');
+            const titleEl = document.getElementById('homeSlidesTitle');
+            if (!input || !stageImg) return;
+
+            let items = []; // {file?, url, local:boolean}
+            let slideUrls = [];
+            let idx = 0;
+            let timer = null;
+            let isViewerMode = false;
+
+            function setSlidesMode(mode) {
+                isViewerMode = mode === 'viewer';
+                if (creatorBox) creatorBox.style.display = isViewerMode ? 'none' : 'block';
+                if (viewerActions) viewerActions.style.display = isViewerMode ? 'block' : 'none';
+                if (titleEl) titleEl.textContent = isViewerMode ? '🎞️ مشاهدة العرض' : '🎞️ عرض تقديمي';
+            }
+            setSlidesMode('creator');
+            let playing = false;
+            let uploading = false;
+
+            function setStatus(msg, isError) {
+                if (!statusEl) return;
+                statusEl.style.display = 'block';
+                statusEl.textContent = msg;
+                statusEl.style.color = isError ? '#be123c' : '#047857';
+            }
+            function stopPlay() {
+                playing = false;
+                if (timer) { clearInterval(timer); timer = null; }
+                if (toggleBtn) toggleBtn.textContent = 'تشغيل';
+            }
+            function startPlay() {
+                stopPlay();
+                const dur = Math.max(1500, parseInt(speedSel && speedSel.value, 10) || 4000);
+                playing = true;
+                if (toggleBtn) toggleBtn.textContent = 'إيقاف';
+                timer = setInterval(function() { showSlide(idx + 1); }, dur);
+            }
+            function showSlide(i) {
+                if (!slideUrls.length) return;
+                idx = ((i % slideUrls.length) + slideUrls.length) % slideUrls.length;
+                const anim = (animSel && animSel.value) || 'zoom';
+                stageImg.className = '';
+                void stageImg.offsetWidth;
+                stageImg.src = slideUrls[idx];
+                stageImg.classList.add('anim-' + anim);
+                if (counterEl) counterEl.textContent = (idx + 1) + ' / ' + slideUrls.length;
+            }
+            function renderThumbs() {
+                if (!thumbs) return;
+                thumbs.innerHTML = '';
+                items.forEach(function(it, i) {
+                    const wrap = document.createElement('div');
+                    wrap.style.cssText = 'position:relative;border-radius:8px;overflow:hidden;aspect-ratio:1;background:#0f172a;border:1px solid #e2e8f0;';
+                    const img = document.createElement('img');
+                    img.src = it.url;
+                    img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
+                    const del = document.createElement('button');
+                    del.type = 'button';
+                    del.textContent = '×';
+                    del.style.cssText = 'position:absolute;top:3px;left:3px;width:22px;height:22px;border:none;border-radius:50%;background:rgba(0,0,0,0.7);color:#fff;cursor:pointer;font-size:12px;';
+                    del.onclick = function() {
+                        if (it.local) try { URL.revokeObjectURL(it.url); } catch (e) {}
+                        items.splice(i, 1);
+                        renderThumbs();
+                        stopPlay();
+                        if (stageWrap) stageWrap.style.display = 'none';
+                        if (player) player.style.display = 'none';
+                    };
+                    wrap.appendChild(img);
+                    wrap.appendChild(del);
+                    thumbs.appendChild(wrap);
+                });
+            }
+            function fileToBase64Raw(file) {
+                return new Promise(function(resolve, reject) {
+                    const reader = new FileReader();
+                    reader.onload = function() {
+                        const result = String(reader.result || '');
+                        resolve(result.includes(',') ? result.split(',')[1] : result);
+                    };
+                    reader.onerror = function() { reject(new Error('تعذر قراءة الملف')); };
+                    reader.readAsDataURL(file);
+                });
+            }
+            function prepareImageForUpload(file) {
+                // ضغط الصور الكبيرة قبل الرفع لتقليل فشل ImgBB
+                return new Promise(function(resolve, reject) {
+                    if (!file) return reject(new Error('ملف غير صالح'));
+                    if (file.size > 12 * 1024 * 1024) {
+                        return reject(new Error('حجم الصورة كبير (الحد 12MB)'));
+                    }
+                    // الملفات الصغيرة تُرفع مباشرة
+                    if (file.size <= 1.5 * 1024 * 1024) {
+                        fileToBase64Raw(file).then(resolve).catch(reject);
+                        return;
+                    }
+                    const img = new Image();
+                    const objUrl = URL.createObjectURL(file);
+                    img.onload = function() {
+                        try {
+                            let w = img.naturalWidth || img.width;
+                            let h = img.naturalHeight || img.height;
+                            const maxSide = 1600;
+                            if (Math.max(w, h) > maxSide) {
+                                const s = maxSide / Math.max(w, h);
+                                w = Math.round(w * s);
+                                h = Math.round(h * s);
+                            }
+                            const c = document.createElement('canvas');
+                            c.width = w;
+                            c.height = h;
+                            const cx = c.getContext('2d');
+                            cx.drawImage(img, 0, 0, w, h);
+                            const dataUrl = c.toDataURL('image/jpeg', 0.85);
+                            URL.revokeObjectURL(objUrl);
+                            resolve(dataUrl.includes(',') ? dataUrl.split(',')[1] : dataUrl);
+                        } catch (e) {
+                            URL.revokeObjectURL(objUrl);
+                            reject(new Error('تعذر تجهيز الصورة'));
+                        }
+                    };
+                    img.onerror = function() {
+                        URL.revokeObjectURL(objUrl);
+                        reject(new Error('تعذر فتح الصورة'));
+                    };
+                    img.src = objUrl;
+                });
+            }
+            async function uploadToImgBB(file) {
+                const b64 = await prepareImageForUpload(file);
+                const form = new FormData();
+                form.append('image', b64);
+                let res;
+                try {
+                    res = await fetch('https://api.imgbb.com/1/upload?key=' + encodeURIComponent(IMGBB_KEY), {
+                        method: 'POST',
+                        body: form
+                    });
+                } catch (e) {
+                    throw new Error('لا يوجد اتصال أو تم حظر الطلب');
+                }
+                let data = null;
+                try {
+                    data = await res.json();
+                } catch (e) {
+                    throw new Error('استجابة غير متوقعة من خادم الرفع');
+                }
+                if (data && data.success && data.data && data.data.url) {
+                    return data.data.url;
+                }
+                const apiMsg = data && data.error && (data.error.message || data.error.code);
+                throw new Error(apiMsg ? String(apiMsg) : ('فشل الرفع (رمز ' + (res.status || '?') + ')'));
+            }
+            function wait(ms) {
+                return new Promise(function(resolve) { setTimeout(resolve, ms); });
+            }
+
+            if (pickBtn) pickBtn.addEventListener('click', function() { input.click(); });
+            function isAllowedSlideFile(file) {
+                if (!file) return false;
+                if (ALLOWED.indexOf(file.type) === -1) return false;
+                const name = String(file.name || '').toLowerCase();
+                return name.endsWith('.jpg') || name.endsWith('.jpeg') || name.endsWith('.png') || name.endsWith('.webp');
+            }
+            input.addEventListener('change', function() {
+                const files = Array.prototype.slice.call(input.files || []);
+                input.value = '';
+                let rejected = 0;
+                let pending = 0;
+                let added = 0;
+                if (!files.length) return;
+                files.forEach(function(f) {
+                    if (items.length + pending >= MAX_SLIDES) {
+                        rejected++;
+                        return;
+                    }
+                    if (!isAllowedSlideFile(f)) {
+                        rejected++;
+                        return;
+                    }
+                    pending++;
+                    validateImageMagicBytes(f, function(ok) {
+                        pending--;
+                        if (!ok) {
+                            rejected++;
+                        } else if (items.length >= MAX_SLIDES) {
+                            rejected++;
+                        } else {
+                            items.push({ file: f, url: URL.createObjectURL(f), local: true });
+                            added++;
+                        }
+                        if (pending === 0) {
+                            renderThumbs();
+                            if (rejected && !added) setStatus('تم الرفض. يُسمح بصور JPG و PNG و WEBP فقط.', true);
+                            else if (rejected) setStatus('تمت إضافة ' + items.length + ' صورة، ورفض ' + rejected + ' ملف.', true);
+                            else setStatus('تم اختيار ' + items.length + ' صورة.', false);
+                        }
+                    });
+                });
+                if (pending === 0 && rejected) setStatus('تم الرفض. يُسمح بالصور فقط.', true);
+            });
+
+            if (previewBtn) {
+                previewBtn.addEventListener('click', function() {
+                    if (!items.length) {
+                        setStatus('اختر صورًا أولًا.', true);
+                        return;
+                    }
+                    slideUrls = items.map(function(it) { return it.url; });
+                    if (stageWrap) stageWrap.style.display = 'block';
+                    if (player) player.style.display = 'flex';
+                    if (shareBox) shareBox.style.display = 'none';
+                    showSlide(0);
+                    startPlay();
+                    setStatus('معاينة محلية — لم يتم رفع أي صورة.', false);
+                });
+            }
+            if (shareBtn) {
+                shareBtn.addEventListener('click', async function() {
+                    if (!items.length || uploading) return;
+                    if (!window.confirm('سيتم رفع الصور إلى ImgBB (خدمة خارجية) لإنشاء رابط مشاركة. هل تريد المتابعة؟')) {
+                        return;
+                    }
+                    uploading = true;
+                    shareBtn.disabled = true;
+                    try {
+                        const urls = [];
+                        for (let i = 0; i < items.length; i++) {
+                            setStatus('جاري رفع الصورة ' + (i + 1) + ' من ' + items.length + '...', false);
+                            if (items[i].file) {
+                                urls.push(await uploadToImgBB(items[i].file));
+                                // تأخير بسيط لتقليل رفض الخدمة عند الرفع المتتابع
+                                if (i < items.length - 1) await wait(350);
+                            } else if (items[i].url && !items[i].local) {
+                                urls.push(items[i].url);
+                            }
+                        }
+                        if (!urls.length) throw new Error('لم يتم رفع أي صورة');
+                        const payload = {
+                            a: (animSel && animSel.value) || 'zoom',
+                            d: Number(speedSel && speedSel.value) || 4000,
+                            s: urls
+                        };
+                        const encoded = encodeURIComponent(JSON.stringify(payload));
+                        // رابط المشاركة دائمًا على الموقع العام ليعمل من أي جهاز
+                        var base = PUBLIC_BASE;
+                        try {
+                            var host = (window.location.hostname || '').toLowerCase();
+                            var isLocal = !host || host === 'localhost' || host === '127.0.0.1' || host === '0.0.0.0' || /^\d+\.\d+\.\d+\.\d+$/.test(host);
+                            if (!isLocal && (host.indexOf('netlify.app') !== -1 || host.indexOf('vexlii') !== -1)) {
+                                base = window.location.origin + '/';
+                            }
+                        } catch (e) {
+                            base = PUBLIC_BASE;
+                        }
+                        const finalUrl = base.replace(/\/?$/, '/') + '#slides=' + encoded;
+                        if (shareUrl) shareUrl.value = finalUrl;
+                        if (shareBox) shareBox.style.display = 'block';
+                        slideUrls = urls;
+                        if (stageWrap) stageWrap.style.display = 'block';
+                        if (player) player.style.display = 'flex';
+                        showSlide(0);
+                        startPlay();
+                        setStatus('تم تجهيز رابط المشاركة ✓', false);
+                    } catch (err) {
+                        setStatus('تعذر الرفع: ' + (err && err.message ? err.message : 'خطأ'), true);
+                    } finally {
+                        uploading = false;
+                        shareBtn.disabled = false;
+                    }
+                });
+            }
+            if (prevBtn) prevBtn.addEventListener('click', function() {
+                showSlide(idx - 1);
+                if (playing) startPlay();
+            });
+            if (nextBtn) nextBtn.addEventListener('click', function() {
+                showSlide(idx + 1);
+                if (playing) startPlay();
+            });
+            if (toggleBtn) toggleBtn.addEventListener('click', function() {
+                if (playing) stopPlay();
+                else startPlay();
+            });
+            if (copyBtn) {
+                copyBtn.addEventListener('click', function() {
+                    if (!shareUrl || !shareUrl.value) return;
+                    if (!navigator.clipboard) {
+                        shareUrl.select();
+                        setStatus('انسخ الرابط يدويًا.', true);
+                        return;
+                    }
+                    navigator.clipboard.writeText(shareUrl.value).then(function() {
+                        setStatus('تم نسخ الرابط ✓', false);
+                    }).catch(function() {
+                        setStatus('تعذر النسخ.', true);
+                    });
+                });
+            }
+
+            function openFromHash() {
+                const hash = window.location.hash || '';
+                if (hash.indexOf('#slides=') !== 0 && hash.indexOf('#view=') !== 0) return;
+                try {
+                    const raw = decodeURIComponent(hash.replace(/^#(slides|view)=/, ''));
+                    const data = JSON.parse(raw);
+                    if (!data || !Array.isArray(data.s) || !data.s.length) return;
+                    const panel = document.getElementById('homeSlidesPanel');
+                    if (panel) panel.style.display = 'block';
+                    // وضع المشاهد فقط: صور + أزرار التنقل + تجربة الميزة
+                    setSlidesMode('viewer');
+                    slideUrls = data.s.slice(0, MAX_SLIDES);
+                    items = slideUrls.map(function(u) { return { url: u, local: false }; });
+                    if (animSel && data.a) animSel.value = data.a;
+                    if (speedSel && data.d) speedSel.value = String(data.d);
+                    if (stageWrap) stageWrap.style.display = 'block';
+                    if (player) player.style.display = 'flex';
+                    showSlide(0);
+                    startPlay();
+                    setStatus('عرض مشارك', false);
+                    try { panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } catch (e) {}
+                } catch (e) {}
+            }
+            function clearSlidesHash() {
+                try {
+                    const h = window.location.hash || '';
+                    if (h.indexOf('#slides=') === 0 || h.indexOf('#view=') === 0) {
+                        history.replaceState(null, '', window.location.pathname + window.location.search);
+                    }
+                } catch (e) {}
+            }
+            function resetViewerSession() {
+                stopPlay();
+                items = [];
+                slideUrls = [];
+                if (thumbs) thumbs.innerHTML = '';
+                if (stageWrap) stageWrap.style.display = 'none';
+                if (player) player.style.display = 'none';
+                if (shareBox) shareBox.style.display = 'none';
+                clearSlidesHash();
+            }
+            if (tryBtn) {
+                tryBtn.addEventListener('click', function() {
+                    resetViewerSession();
+                    setSlidesMode('creator');
+                    setStatus('ابدأ برفع صورك لإنشاء عرض جديد.', false);
+                });
+            }
+            // إغلاق اللوحة يزيل #slides من الرابط حتى لا يظهر العرض تلقائيًا لاحقًا
+            const slidesPanelEl = document.getElementById('homeSlidesPanel');
+            if (slidesPanelEl) {
+                const closeBtn = slidesPanelEl.querySelector('.home-panel-close');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', function() {
+                        resetViewerSession();
+                        setSlidesMode('creator');
+                    });
+                }
+            }
+            // فتح من الرئيسية = وضع منشئ فقط، مع إزالة أي هاش قديم
+            document.addEventListener('click', function(e) {
+                const btn = e.target && e.target.closest && e.target.closest('[data-home-action="slides"]');
+                if (btn) {
+                    clearSlidesHash();
+                    setSlidesMode('creator');
+                }
+            });
+            window.addEventListener('hashchange', openFromHash);
+            // يظهر العرض فقط إذا كان الرابط يحتوي #slides الآن
+            openFromHash();
+        })();
+
+        // محرر المستندات المحلي + تصدير PDF/Word
+        (function setupHomeDocTool() {
+            const editor = document.getElementById('homeDocEditor');
+            const titleInput = document.getElementById('homeDocTitle');
+            const statsEl = document.getElementById('homeDocStats');
+            const saveStateEl = document.getElementById('homeDocSaveState');
+            const statusEl = document.getElementById('homeDocStatus');
+            if (!editor) return;
+
+            const CONTENT_KEY = 'vexlii_doc_content_v1';
+            const TITLE_KEY = 'vexlii_doc_title_v1';
+
+            function setStatus(msg, isError) {
+                if (!statusEl) return;
+                statusEl.style.display = 'block';
+                statusEl.textContent = msg;
+                statusEl.style.color = isError ? '#be123c' : '#047857';
+            }
+            function updateStats() {
+                const text = (editor.innerText || '').trim();
+                const words = text ? text.split(/\s+/).length : 0;
+                const chars = text.length;
+                if (statsEl) statsEl.textContent = 'الكلمات: ' + words + ' | الأحرف: ' + chars;
+            }
+            function saveLocal() {
+                try {
+                    localStorage.setItem(CONTENT_KEY, editor.innerHTML);
+                    localStorage.setItem(TITLE_KEY, sanitizeInput(titleInput ? titleInput.value : '').slice(0, 80));
+                    if (saveStateEl) saveStateEl.textContent = 'محفوظ محليًا';
+                } catch (e) {
+                    if (saveStateEl) saveStateEl.textContent = 'تعذر الحفظ المحلي';
+                }
+                updateStats();
+            }
+            function exec(cmd, val) {
+                try { document.execCommand(cmd, false, val); } catch (e) {}
+                editor.focus();
+                saveLocal();
+            }
+            function loadHtml2Pdf(cb) {
+                if (window.html2pdf) return cb();
+                const s = document.createElement('script');
+                s.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+                s.onload = function() { cb(); };
+                s.onerror = function() { setStatus('تعذر تحميل مكتبة PDF. تحقق من الاتصال.', true); };
+                document.head.appendChild(s);
+            }
+
+            // استرجاع محفوظ
+            try {
+                const sc = localStorage.getItem(CONTENT_KEY);
+                const st = localStorage.getItem(TITLE_KEY);
+                if (sc) editor.innerHTML = sc;
+                else editor.innerHTML = '<h1>عنوان المستند</h1><p>ابدأ الكتابة هنا...</p>';
+                if (st && titleInput) titleInput.value = st;
+            } catch (e) {
+                editor.innerHTML = '<h1>عنوان المستند</h1><p>ابدأ الكتابة هنا...</p>';
+            }
+            updateStats();
+
+            editor.addEventListener('input', saveLocal);
+            if (titleInput) {
+                titleInput.addEventListener('input', function() {
+                    titleInput.value = sanitizeInput(titleInput.value).slice(0, 80);
+                    saveLocal();
+                });
+            }
+
+            const fontSel = document.getElementById('homeDocFont');
+            const blockSel = document.getElementById('homeDocBlock');
+            if (fontSel) fontSel.addEventListener('change', function() { exec('fontName', fontSel.value); });
+            if (blockSel) blockSel.addEventListener('change', function() { exec('formatBlock', blockSel.value); });
+            const map = [
+                ['homeDocBold', 'bold'],
+                ['homeDocItalic', 'italic'],
+                ['homeDocUnderline', 'underline'],
+                ['homeDocRight', 'justifyRight'],
+                ['homeDocCenter', 'justifyCenter'],
+                ['homeDocLeft', 'justifyLeft'],
+                ['homeDocUl', 'insertUnorderedList'],
+                ['homeDocOl', 'insertOrderedList']
+            ];
+            map.forEach(function(pair) {
+                const el = document.getElementById(pair[0]);
+                if (el) el.addEventListener('click', function() { exec(pair[1]); });
+            });
+
+            const clearBtn = document.getElementById('homeDocClearBtn');
+            if (clearBtn) {
+                clearBtn.addEventListener('click', function() {
+                    if (!window.confirm('هل تريد مسح محتوى المستند؟')) return;
+                    editor.innerHTML = '<p><br></p>';
+                    if (titleInput) titleInput.value = 'مستند بدون عنوان';
+                    saveLocal();
+                    setStatus('تم المسح.', false);
+                });
+            }
+
+            const wordBtn = document.getElementById('homeDocWordBtn');
+            if (wordBtn) {
+                wordBtn.addEventListener('click', function() {
+                    const title = sanitizeInput((titleInput && titleInput.value) || 'مستند').slice(0, 80) || 'مستند';
+                    const content = editor.innerHTML;
+                    const header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>" + title + "</title><style>body{font-family:Cairo,Arial,sans-serif;direction:rtl;text-align:right;line-height:1.7;}</style></head><body>";
+                    const blob = new Blob(['\ufeff', header + content + '</body></html>'], { type: 'application/msword;charset=utf-8' });
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(blob);
+                    a.download = title + '.doc';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    setStatus('تم تنزيل ملف Word.', false);
+                });
+            }
+
+            const pdfBtn = document.getElementById('homeDocPdfBtn');
+            if (pdfBtn) {
+                pdfBtn.addEventListener('click', function() {
+                    const title = sanitizeInput((titleInput && titleInput.value) || 'مستند').slice(0, 80) || 'مستند';
+                    loadHtml2Pdf(function() {
+                        if (!window.html2pdf) return;
+                        setStatus('جاري إنشاء PDF...', false);
+                        const opt = {
+                            margin: [10, 10, 10, 10],
+                            filename: title + '.pdf',
+                            image: { type: 'jpeg', quality: 0.98 },
+                            html2canvas: { scale: 2, useCORS: true },
+                            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                        };
+                        window.html2pdf().set(opt).from(editor).save().then(function() {
+                            setStatus('تم تنزيل PDF ✓', false);
+                        }).catch(function() {
+                            setStatus('تعذر إنشاء PDF.', true);
+                        });
+                    });
+                });
+            }
+        })();
+
         confirmScratchBtn.addEventListener('click', () => {
             let w, h;
             if (selectedTemplateW === 0 && selectedTemplateH === 0) {
@@ -3163,12 +3998,14 @@
             let sHeight = img.height;
             let sX = 0, sY = 0;
 
-            if (currentCropAspect === 'circle') {
+            if (currentCropAspect === 'circle' || currentCropAspect === 'rounded') {
                 const minDim = Math.min(sWidth, sHeight);
                 sX = (sWidth - minDim) / 2;
                 sY = (sHeight - minDim) / 2;
                 sWidth = minDim;
                 sHeight = minDim;
+            } else if (currentCropAspect === 'oval') {
+                // نبقي أبعاد الصورة ونقصّها بيضاويًا عند الرسم
             } else if (currentCropAspect && currentCropAspect.w !== 0) {
                 const targetRatio = currentCropAspect.w / currentCropAspect.h;
                 const imgRatio = sWidth / sHeight;
@@ -3295,11 +4132,72 @@
                 ctx.beginPath();
                 ctx.arc(sWidth / 2, sHeight / 2, sWidth / 2, 0, Math.PI * 2);
                 ctx.clip();
+            } else if (currentCropAspect === 'rounded') {
+                const r = Math.min(sWidth, sHeight) * 0.18;
+                ctx.beginPath();
+                if (ctx.roundRect) {
+                    ctx.roundRect(0, 0, sWidth, sHeight, r);
+                } else {
+                    const x = 0, y = 0, w = sWidth, h = sHeight;
+                    ctx.moveTo(x + r, y);
+                    ctx.arcTo(x + w, y, x + w, y + h, r);
+                    ctx.arcTo(x + w, y + h, x, y + h, r);
+                    ctx.arcTo(x, y + h, x, y, r);
+                    ctx.arcTo(x, y, x + w, y, r);
+                    ctx.closePath();
+                }
+                ctx.clip();
+            } else if (currentCropAspect === 'oval') {
+                ctx.beginPath();
+                ctx.ellipse(sWidth / 2, sHeight / 2, sWidth / 2, sHeight / 2, 0, 0, Math.PI * 2);
+                ctx.clip();
             }
 
             ctx.filter = `brightness(${brightnessRange.value}%) contrast(${contrastRange.value}%) saturate(${saturateRange.value}%) hue-rotate(${hueRange.value}deg)`;
             ctx.drawImage(img, sX, sY, sWidth, sHeight, 0, 0, sWidth, sHeight);
             ctx.restore();
+
+            // رسم العلامة التجارية فوق الصورة الأصلية (لا تستبدلها)
+            if (badgeImg && badgeImg.complete && badgeImg.naturalWidth) {
+                const margin = Math.max(10, Math.min(canvas.width, canvas.height) * 0.03);
+                const side = Math.max(24, Math.min(canvas.width, canvas.height) * (badgeSizePct / 100));
+                let bx = margin, by = margin;
+                if (badgePos === 'tr' || badgePos === 'br') bx = canvas.width - side - margin;
+                if (badgePos === 'bl' || badgePos === 'br') by = canvas.height - side - margin;
+                if (badgePos === 'center') {
+                    bx = (canvas.width - side) / 2;
+                    by = (canvas.height - side) / 2;
+                }
+                // في RTL: tl = أعلى يمين بصريًا، tr = أعلى يسار
+                if (badgePos === 'tl') { bx = canvas.width - side - margin; by = margin; }
+                if (badgePos === 'tr') { bx = margin; by = margin; }
+                if (badgePos === 'br') { bx = margin; by = canvas.height - side - margin; }
+                if (badgePos === 'bl') { bx = canvas.width - side - margin; by = canvas.height - side - margin; }
+
+                ctx.save();
+                ctx.translate(bx + side / 2, by + side / 2);
+                ctx.rotate((badgeRotation * Math.PI) / 180);
+                ctx.beginPath();
+                if (badgeShape === 'circle') {
+                    ctx.arc(0, 0, side / 2, 0, Math.PI * 2);
+                    ctx.clip();
+                } else if (badgeShape === 'rounded') {
+                    const r = side * 0.2;
+                    if (ctx.roundRect) ctx.roundRect(-side / 2, -side / 2, side, side, r);
+                    else {
+                        ctx.rect(-side / 2, -side / 2, side, side);
+                    }
+                    ctx.clip();
+                }
+                // قص مربعي مركزي من صورة العلامة
+                const bw = badgeImg.naturalWidth || badgeImg.width;
+                const bh = badgeImg.naturalHeight || badgeImg.height;
+                const minD = Math.min(bw, bh);
+                const sx = (bw - minD) / 2;
+                const sy = (bh - minD) / 2;
+                ctx.drawImage(badgeImg, sx, sy, minD, minD, -side / 2, -side / 2, side, side);
+                ctx.restore();
+            }
 
             if (!isTextInitialized) {
                 textX = canvas.width / 2;
@@ -5086,14 +5984,14 @@
         }
 
         function cropImage(w, h) {
-            if (w === 'circle') currentCropAspect = 'circle';
+            if (w === 'circle' || w === 'rounded' || w === 'oval') currentCropAspect = w;
             else if (w === 0 && h === 0) currentCropAspect = 0;
             else currentCropAspect = { w: w, h: h };
             // تمييز الزر المختار بصريًا
             document.querySelectorAll('.crop-ratio-btn').forEach(function(btn) {
                 btn.classList.remove('active');
                 const key = btn.getAttribute('data-crop');
-                if (w === 'circle' && key === 'circle') btn.classList.add('active');
+                if ((w === 'circle' || w === 'rounded' || w === 'oval') && key === w) btn.classList.add('active');
                 else if (w && h && key === (w + ':' + h)) btn.classList.add('active');
             });
             processImageDrawing();
